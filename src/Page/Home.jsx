@@ -13,6 +13,7 @@ import ClientCarousel from "../components/ClientCarousel";
 import Footer from "../components/Footer";
 import ImageCarousel from "../components/ImageCarousel";
 import Loader from "../components/Loader"; // Import the Loader component
+import { ColorRing, Rings } from "react-loader-spinner";
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -27,7 +28,15 @@ const Home = () => {
   }, []);
 
   if (isLoading) {
-    return <Loader />;
+    return <div className="w-full h-screen flex items-center justify-center"> <ColorRing
+    visible={true}
+    height="120"
+    width="120"
+    ariaLabel="color-ring-loading"
+    wrapperStyle={{}}
+    wrapperClass="color-ring-wrapper"
+  colors={['#e8772e', '#d47d38', '#be6c44', '#a65c50', '#102541']}
+    />;</div>
   }
 
   return (
