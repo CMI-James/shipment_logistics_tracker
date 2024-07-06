@@ -22,6 +22,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/policy" element={<Policy />} />
           <Route path="/userpage/:trackingCode" element={<UserPage />} />
+          <Route path="/user" element={<UserPage />} />
         </Routes>
       </Router>
     </div>

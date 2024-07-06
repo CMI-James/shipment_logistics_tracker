@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import header_logo from "/images/header_logo.svg";
+import { Link } from "react-router-dom";
+
 import { AiOutlineMenu } from "react-icons/ai"; // Import the menu icon
 
 const Header = () => {
@@ -39,9 +41,11 @@ const Header = () => {
       {/* Track Cargo Button */}
       <div className="flex gap-4">
         <div className="flex">
-          <button className="border-2 border-[#e8772e] text-[#e8772e] rounded-lg px-4 py-1">
-            Track Cargo
-          </button>
+          <Link to="/user">
+            <button className="border-2 border-[#e8772e] text-[#e8772e] rounded-lg px-4 py-1">
+              Track Cargo
+            </button>
+          </Link>
         </div>
 
         {/* Hamburger Menu Icon */}
