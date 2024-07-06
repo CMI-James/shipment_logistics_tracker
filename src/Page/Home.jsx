@@ -35,13 +35,13 @@ const Home = () => {
     ariaLabel="color-ring-loading"
     wrapperStyle={{}}
     wrapperClass="color-ring-wrapper"
-  colors={['#e8772e', '#d47d38', '#be6c44', '#a65c50', '#102541']}
+  colors={['#e8772e', '#d47d38', '#be6c44', '#a65c50', '#814239']}
     />;</div>
   }
 
   return (
     <div className="">
-      <div className="absolute z-10 ">
+      <div className="absolute z-10  ">
         <Header />
       </div>
       <Hero />

@@ -12,8 +12,8 @@ const transitionSettings = {
 
 const Hero = () => {
   return (
-    <div className="hero">
-      <div className="w-full flex justify-center items-center mt-[7rem] lg:mt-[10rem]">
+    
+      <div className="hero w-full flex justify-center items-center mt-[7rem] lg:mt-[10rem]">
         <div className="text-white text-center w-[90%] lg:w-[50%] flex flex-col justify-center items-center gap-6">
           <motion.h1
             className="text-[30px] lg:text-[35px] font-semibold"
@@ -64,7 +64,7 @@ const Hero = () => {
           </motion.div>
         </div>
       </div>
-    </div>
+   
   );
 };
 
