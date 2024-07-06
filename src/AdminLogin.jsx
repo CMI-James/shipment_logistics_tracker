@@ -31,7 +31,7 @@ const AdminLogin = () => {
 
   return (
     <div className="h-screen w-full flex justify-center items-center flex-col admin">
-      <div className="h-[70%] lg:h-[90%] bg-opacity-90 w-[80%] lg:w-[40%] bg-white flex items-center justify-center gap-[3rem] flex-col rounded-md">
+      <div className="h-[80%]  lg:h-[90%] bg-opacity-90 w-[90%] lg:w-[40%] bg-white flex items-center justify-center gap-[3rem] flex-col rounded-md">
         <div className="flex items-center flex-col gap-[2rem]">
           <Link to="/">
             <img
@@ -40,13 +40,13 @@ const AdminLogin = () => {
               className="w-[12rem]"
             />
           </Link>
-          <h1 className="text-[1rem] font-bold">
-            PLEASE LOGIN TO ADMIN DASHBOARD
+          <h1 className="text-[1.4rem] text-[#102541]  font-bold">
+            ADMIN DASHBOARD
           </h1>
         </div>
         <form
           onSubmit={handleLogin}
-          className="flex flex-col gap-[2rem] w-[65%] items-center"
+          className="flex flex-col gap-[2rem] w-[80%] md:w-[65%] items-center"
         >
           <input
             type="email"
