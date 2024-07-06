@@ -9,6 +9,7 @@ import "./App.css";
 import "./index.css";
 import Home from "./Page/Home";
 import Policy from "./Page/Policy";
+import UserPage from "./User";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/" element={<Home />} />
           <Route path="/policy" element={<Policy />} />
+          <Route path="/userpage/:trackingCode" element={<UserPage />} />
         </Routes>
       </Router>
     </div>
