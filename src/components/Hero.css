@@ -1,0 +1,24 @@
+/* Hero.css */
+.hero {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("../../public/images/hero.jpg") no-repeat center center fixed;
+  background-size: cover;
+  filter: brightness(50%);
+  -webkit-filter: brightness(50%);
+  z-index: -1;
+}

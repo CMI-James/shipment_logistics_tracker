@@ -1,0 +1,14 @@
+
+
+
+.app {
+  font-family: "Poppins", sans-serif;
+}
+
+.slick-dots li.slick-active div {
+  background: orange !important;
+}
+
+.slick-dots li div {
+  transition: background 0.3s ease;
+}

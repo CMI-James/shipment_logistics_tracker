@@ -1,0 +1,41 @@
+/* styles.css */
+
+.admin {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+
+  overflow: hidden;
+}
+
+.admin::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("/images/admin.jpg") no-repeat center center fixed;
+  background-size: cover;
+  filter: brightness(50%);
+  -webkit-filter: brightness(50%);
+  z-index: -1;
+}
+
+/* AdminLogin.css */
+.loader {
+  border: 4px solid #f3f3f3; /* Light grey */
+  border-top: 4px solid #000000; /* Blue */
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
