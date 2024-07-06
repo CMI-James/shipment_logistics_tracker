@@ -67,7 +67,7 @@ const Hero = () => {
             placeholder="Tracking ID"
             value={trackingCode}
             onChange={(e) => setTrackingCode(e.target.value)}
-            className="border w-full border-gray-300 p-3 focus:outline-none focus:ring-2 focus:ring-[#e8772e]"
+            className="border w-full border-gray-300 p-3 focus:outline-none focus:ring-2 focus:ring-[#e8772e] text-black"
           />
           <button
             onClick={handleTrackClick}
