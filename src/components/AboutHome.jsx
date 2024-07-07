@@ -12,13 +12,13 @@ const items = [
       "We carefully review our strategy every five years. Strategy 2029 is the guideline on which we base our working practices - Delivering Excellence in a Digital World. The strategy summarizes the way we rebuild our sector using digitization with the aim of connecting people and improving lives. In doing so, we continue to position ourselves as the global logistics service provider. Strategy 2025 is ‘powered by’ digitization.",
   },
   {
-    icon: <BsGiftFill className="fill-[#e8772e] text-2xl" />,
+    icon: <BsGiftFill className="fill-orange-450 text-2xl" />,
     title: "FIRST CHOICE",
     description:
       "Sea Wave Logistics has wonderful clients all over the world, and we'd like to keep it that way. That's why we ensure that we are and remain their first choice through our excellent service and through First Choice. This is our first-class improvement program that helps everyone in our organization strive forward every single day, guided by the motto: “Everybody. Everyday. Everywhere. A little bit better.”",
   },
   {
-    icon: <IoGift className="text-[#e8772e] text-2xl" />,
+    icon: <IoGift className="text-orange-450 text-2xl" />,
     title: "A BIGGER WORLD",
     description:
       "Sea Wave Logistics logistics is our contribution to a more sustainable world. This is a massive challenge, which is why the Sea Wave Logistics Group has set an ambitious objective for climate protection: zero-emissions logistics by 2064. How are we going to do this?",
@@ -49,14 +49,14 @@ const AboutHome = () => {
               {typeof item.icon === "string" ? (
                 <img
                   src={item.icon}
-                  className="w-16 border border-[#e8772e] rounded-full p-3"
+                  className="w-16 border border-orange-450 rounded-full p-3"
                   alt=""
                 />
               ) : (
                 item.icon
               )}
               <div>
-                <h1 className="pb-4 text-xl font-bold hover:text-[#e8772e]">
+                <h1 className="pb-4 text-xl font-bold hover:text-orange-450">
                   {item.title}
                 </h1>
                 <p className="text-sm">{item.description}</p>

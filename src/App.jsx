@@ -13,7 +13,7 @@ import UserPage from "./User";
 
 const App = () => {
   return (
-    <div className="app">
+    <div className="app selection:bg-orange-450 selection:text-white">
       <Router>
         <ToastContainer />
         <Routes>

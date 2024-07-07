@@ -23,11 +23,17 @@ const Header = () => {
   ];
 
   return (
-    <div className="fixed w-full bg-white p-4 flex justify-between items-center shadow-md">
+    <div className="fixed w-full bg-white p-4 flex justify-between items-center shadow-md text-grey-450">
       {/* Logo Section */}
-      <div className="flex items-center">
-        <img src={header_logo} alt="Trustway Logistics Logo" className="w-32" />
-      </div>
+      <Link to="/">
+        <div className="flex items-center">
+          <img
+            src={header_logo}
+            alt="Trustway Logistics Logo"
+            className="w-32"
+          />
+        </div>
+      </Link>
 
       {/* Navigation Menu */}
       <div className="hidden lg:flex flex-1 justify-center">
@@ -42,7 +48,7 @@ const Header = () => {
       <div className="flex gap-4">
         <div className="flex">
           <Link to="/user">
-            <button className="border-2 border-[#e8772e] text-[#e8772e] rounded-lg px-4 py-1">
+            <button className="border-orange-450 border-2  text-orange-450 rounded-lg px-4 py-1">
               Track Cargo
             </button>
           </Link>
@@ -50,7 +56,7 @@ const Header = () => {
 
         {/* Hamburger Menu Icon */}
         <div className="lg:hidden flex items-center">
-          <button onClick={toggleMenu} className="text-[#e8772e]">
+          <button onClick={toggleMenu} className="text-orange-450">
             <AiOutlineMenu size={24} />
           </button>
         </div>

@@ -1,3 +1,4 @@
+// src/components/Hero.js
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -12,13 +13,16 @@ const transitionSettings = {
 };
 
 const Hero = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [trackingCode, setTrackingCode] = useState("");
   const navigate = useNavigate();
 
   const handleTrackClick = () => {
+    setIsLoading(true);
     if (trackingCode.trim()) {
       navigate(`/userpage/${trackingCode}`);
     }
+    setIsLoading(false);
   };
 
   return (
@@ -53,7 +57,8 @@ const Hero = () => {
             <img src={search_logo} className="w-10 lg:w-14" alt="Track" /> Track
           </div>
           <div className="flex-1 bg-white py-6 flex flex-col gap-1 justify-center items-center">
-            <img src={support_logo} className="w-8 lg:w-10" alt="Support" /> Support
+            <img src={support_logo} className="w-8 lg:w-10" alt="Support" />{" "}
+            Support
           </div>
         </motion.div>
         <motion.div
@@ -71,9 +76,22 @@ const Hero = () => {
           />
           <button
             onClick={handleTrackClick}
-            className="bg-[#e8772e] text-white p-3 px-6 lg:px-[2rem] hover:bg-[#e8772e] focus:outline-none focus:ring-2 focus:ring-[#e8772e]"
+            className="bg-[#e8772e] flex items-center justify-center text-white p-3 px-6 lg:px-[2rem] hover:bg-[#e8772e] focus:outline-none focus:ring-2 focus:ring-[#e8772e]"
           >
-            Track
+            {isLoading ? (
+              <TailSpin
+                visible={true}
+                height="80"
+                width="80"
+                color="#4fa94d"
+                ariaLabel="tail-spin-loading"
+                radius="1"
+                wrapperStyle={{}}
+                wrapperClass=""
+              />
+            ) : (
+              "Search"
+            )}
           </button>
         </motion.div>
       </div>
