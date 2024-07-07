@@ -13,10 +13,12 @@ export const useAuth = () => {
 // Authentication provider component
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
+  const [loading, setLoading] = useState(true); // Add loading state
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
       setCurrentUser(user);
+      setLoading(false); // Set loading to false once the user state is known
     });
 
     return unsubscribe;
@@ -24,7 +26,7 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider value={{ currentUser }}>
-      {children}
+      {!loading && children} {/* Render children only when not loading */}
     </AuthContext.Provider>
   );
 };

@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "./AdminLogin.css";
 import Header from "./components/Header";
 import header_logo from "/images/header_logo.svg";
+import { TailSpin } from "react-loader-spinner";
 
 const AdminLogin = () => {
   const [email, setEmail] = useState("");
@@ -31,6 +32,7 @@ const AdminLogin = () => {
 
   return (
     <div className="h-screen w-full flex justify-center items-center flex-col admin">
+      
       <div className="h-[70%]  lg:h-[90%] bg-opacity-90 w-[90%] lg:w-[40%] bg-white flex items-center justify-center gap-[3rem] flex-col rounded-md">
         <div className="flex items-center flex-col gap-[2rem]">
           <Link to="/">
@@ -69,7 +71,17 @@ const AdminLogin = () => {
             className="bg-[#e8772e] flex justify-center items-center hover:bg-[#e36a19] font-bold w-[10rem] px-[2rem] rounded-md text-white py-[0.7rem]"
             disabled={loading} // Disable button when loading
           >
-            {loading ? <div className="loader"></div> : "Login"}
+            {loading ? (
+              <TailSpin
+                visible={true}
+                height="24"
+                width="24"
+                color="#ffffff"
+                ariaLabel="tail-spin-loading"
+              />
+            ) : (
+              "Login"
+            )}
           </button>
         </form>
       </div>
