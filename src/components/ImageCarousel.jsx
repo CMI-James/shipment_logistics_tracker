@@ -30,7 +30,7 @@ const ImageCarousel = () => {
   };
 
   return (
-    <div className="h-screen bg-blue-900 text-white">
+    <div className="h-screen bg-grey-450 text-white">
       <Slider {...settings} className="h-full">
         {images.map((image, index) => (
           <div key={index} className="h-full flex flex-col justify-between">

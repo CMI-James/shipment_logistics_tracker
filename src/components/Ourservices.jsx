@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import truck from "/images/truck4.jpg";
 import airplane from "/images/airplane.jpg";
 import ship_ from "/images/ship_.jpeg";
@@ -28,18 +30,27 @@ const services = [
 ];
 
 const Ourservices = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000, offset: 200, easing: 'ease-in-out' });
+  }, []);
+
   return (
     <div className="px-4 py-20 sm:px-8 lg:px-20 bg-gray-50">
-      <div className="text-center">
+      <div className="text-center" data-aos="fade-up">
         <h1 className="text-3xl md:text-4xl font-bold">Our Services</h1>
       </div>
-      <p className="py-6 text-center text-lg md:text-xl text-gray-600">
+      <p className="py-6 text-center text-lg md:text-xl text-gray-600" data-aos="fade-up" data-aos-delay="200">
         While the first impression may be lasting, for online shoppers each phase of the customer journey is important. This includes the transport journey and receipt. Sea Wave Logistics Parcel is an add-on for your business that we operate with the utmost commitment. We take care of all your shipping needs for customer satisfaction.
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {services.map(service => (
-          <div key={service.id} className="shadow-lg flex flex-col justify-between gap-3 bg-white rounded-lg overflow-hidden">
+        {services.map((service, index) => (
+          <div
+            key={service.id}
+            className="shadow-lg flex flex-col justify-between gap-3 bg-white rounded-lg overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay={400 + index * 200}
+          >
             <img src={service.image} alt={service.alt} className="object-cover h-56 w-full" />
             <div className="px-6 py-4 flex flex-col gap-4">
               <h1 className="text-xl font-semibold text-gray-800">{service.title}</h1>

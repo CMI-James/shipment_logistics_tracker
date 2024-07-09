@@ -31,7 +31,7 @@ const WhyChooseUs = () => {
   };
 
   return (
-    <section className="bg-blue-900 text-white py-12">
+    <section className="bg-grey-450 text-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between">
         <div className="w-full md:w-1/2 mb-6 md:mb-0">
           <div className="relative">
