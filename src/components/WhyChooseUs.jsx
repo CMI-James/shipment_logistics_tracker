@@ -37,7 +37,7 @@ const WhyChooseUs = () => {
 
   return (
     <section className="bg-grey-450 text-white py-20">
-      <div className="lg:px-24 px-4 sm:px-6  flex  gap-6 items-center  justify-between">
+      <div className="lg:px-24 px-4 sm:px-6  flex flex-col md:flex-row  gap-6 items-center  justify-between">
         <div className="w-full md:w-1/2 mb-6 md:mb-0 ">
           <div className="relative">
             {!videoPlaying && (
