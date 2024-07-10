@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { TailSpin } from "react-loader-spinner";
 import { motion } from "framer-motion";
 import Header from "./components/Header";
+import ShipmentStatusTracker from "./ShipmentStatusTracker";
 
 const transitionSettings = {
   duration: 0.8,
@@ -28,7 +29,10 @@ const UserPage = () => {
   const handleSearch = async (code) => {
     setIsLoading(true);
     try {
-      const q = query(collection(db, "shipments"), where("trackingCode", "==", code));
+      const q = query(
+        collection(db, "shipments"),
+        where("trackingCode", "==", code)
+      );
       const querySnapshot = await getDocs(q);
       if (!querySnapshot.empty) {
         setCargo(querySnapshot.docs[0].data());
@@ -77,7 +81,13 @@ const UserPage = () => {
             disabled={isLoading}
           >
             {isLoading ? (
-              <TailSpin visible={true} height="24" width="24" color="#ffffff" ariaLabel="tail-spin-loading" />
+              <TailSpin
+                visible={true}
+                height="24"
+                width="24"
+                color="#ffffff"
+                ariaLabel="tail-spin-loading"
+              />
             ) : (
               "Search"
             )}
@@ -85,7 +95,13 @@ const UserPage = () => {
         </motion.form>
         {isLoading && (
           <div className="w-full max-w-md mt-6 flex  justify-center">
-            <TailSpin visible={true} height="80" width="80" color="#102541" ariaLabel="tail-spin-loading" />
+            <TailSpin
+              visible={true}
+              height="80"
+              width="80"
+              color="#102541"
+              ariaLabel="tail-spin-loading"
+            />
           </div>
         )}
         {cargo && !isLoading && (
@@ -95,53 +111,73 @@ const UserPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={transitionSettings}
           >
-            <h3 className="text-2xl font-bold mb-4">Cargo Details</h3>
-            <p className="mb-2">
+            <h3 className="text-2xl font-bold mb-4 w-full text-center">
+              Cargo Details
+            </h3>
+            <p className="mb-2 w-full text-center">
               <strong>Tracking Code:</strong> {cargo.trackingCode}
             </p>
-            <p className="text-xl font-bold mb-4">Sender Details</p>
-            <p className="mb-2">
-              <strong>Name:</strong> {cargo.sender.name}
+            <div className="p-2 border-[1px] border-grey-450 mb-4 rounded-md bg-grey-450 text-white">
+              {" "}
+              <p className="text-xl font-bold mb-4">Sender Details</p>
+              <p className="mb-2">
+                <strong>Name:</strong> {cargo.sender.name}
+              </p>
+              <p className="mb-2">
+                <strong>Phone:</strong> {cargo.sender.phone}
+              </p>
+              <p className="mb-2">
+                <strong>Email:</strong> {cargo.sender.email}
+              </p>
+            </div>
+            <div className="p-2 border-[1px] border-grey-450 mb-4 rounded-md  bg-grey-450 text-white">
+              {" "}
+              <p className="text-xl font-bold mb-4">Receiver Details</p>
+              <p className="mb-2">
+                <strong>Name:</strong> {cargo.receiver.name}
+              </p>
+              <p className="mb-2">
+                <strong>Phone:</strong> {cargo.receiver.phone}
+              </p>
+              <p className="mb-2">
+                <strong>Email:</strong> {cargo.receiver.email}
+              </p>
+            </div>
+           
+            <div className="px-2 py-1 border-[1px] border-grey-450 mb-4 rounded-md  bg-grey-450 text-white">
+              <p className="mb-2 flex justify-between">
+                <strong>Origin:</strong> {cargo.countryFrom.label}
+              </p>
+              <p className="mb-2 flex justify-between">
+                <strong>Destination:</strong> {cargo.countryTo.label}
+              </p>
+            </div>
+            <div className="px-2 py-1 border-[1px] border-grey-450 mb-4 rounded-md  bg-grey-450 text-white">
+              <p className="mb-2 flex justify-between">
+                <strong>Shipping Date:</strong>{" "}
+                {new Date(
+                  cargo.shippingDate.seconds * 1000
+                ).toLocaleDateString()}
+              </p>
+              <p className="mb-2 flex justify-between">
+                <strong>Arrival Date:</strong>{" "}
+                {new Date(
+                  cargo.arrivalDate.seconds * 1000
+                ).toLocaleDateString()}
+              </p>
+            </div>
+           <div className="px-2 py-1 border-[1px] border-grey-450 mb-4 rounded-md  bg-grey-450 text-white">
+           <p className="mb-2 flex gap-4 justify-between w-full">
+              <strong>Content:</strong> {cargo.contentName}
             </p>
-            <p className="mb-2">
-              <strong>Phone:</strong> {cargo.sender.phone}
+            <p className="mb-2 flex gap-4 justify-between">
+              <strong>Custom Fee:</strong> {cargo.customClearanceFee}
             </p>
-            <p className="mb-2">
-              <strong>Email:</strong> {cargo.sender.email}
-            </p>
-            <p className="text-xl font-bold mb-4">Receiver Details</p>
-            <p className="mb-2">
-              <strong>Name:</strong> {cargo.receiver.name}
-            </p>
-            <p className="mb-2">
-              <strong>Phone:</strong> {cargo.receiver.phone}
-            </p>
-            <p className="mb-2">
-              <strong>Email:</strong> {cargo.receiver.email}
-            </p>
-            <p className="mb-2">
-              <strong>Content Name:</strong> {cargo.contentName}
-            </p>
-            <p className="mb-2">
-              <strong>Country From:</strong> {cargo.countryFrom.label}
-            </p>
-            <p className="mb-2">
-              <strong>Country To:</strong> {cargo.countryTo.label}
-            </p>
-            <p className="mb-2">
-              <strong>Shipping Date:</strong>{" "}
-              {new Date(cargo.shippingDate.seconds * 1000).toLocaleDateString()}
-            </p>
-            <p className="mb-2">
-              <strong>Arrival Date:</strong>{" "}
-              {new Date(cargo.arrivalDate.seconds * 1000).toLocaleDateString()}
-            </p>
-            <p className="mb-2">
-              <strong>Custom Clearance Fee:</strong> {cargo.customClearanceFee}
-            </p>
+           </div>
             <p className="mb-2">
               <strong>Status:</strong> {cargo.status}
             </p>
+            <ShipmentStatusTracker/>
           </motion.div>
         )}
       </div>

@@ -9,11 +9,11 @@ const ShipmentStatusTracker = ({ status, onChange }) => {
     const currentStatusIndex = statuses.indexOf(currentStatus);
     return (statusIndex) => {
       if (statusIndex < currentStatusIndex) {
-        return 'bg-green-500 text-white';
+        return 'text-green-500';
       } else if (statusIndex === currentStatusIndex) {
-        return 'bg-green-500 text-white';
+        return 'text-green-500 animate-pulse';
       } else {
-        return 'bg-gray-300 text-gray-600';
+        return 'text-gray-300';
       }
     };
   };
@@ -27,26 +27,28 @@ const ShipmentStatusTracker = ({ status, onChange }) => {
   const statusClass = getStatusClass(status);
 
   return (
-    <div className="flex justify-between items-center w-full max-w-lg my-4">
+    <div className="flex items-center w-full max-w-lg my-4">
       {statuses.map((stat, index) => (
-        <div key={stat} className="flex items-center cursor-pointer" onClick={() => handleStatusClick(stat)}>
-          <div className={`rounded-full p-2 ${statusClass(index)}`}>
-            {index <= statuses.indexOf(status) ? (
-              <FaCheckCircle className="text-lg" />
-            ) : (
-              <MdRadioButtonUnchecked className="text-lg" />
-            )}
+        <React.Fragment key={stat}>
+          <div className="flex flex-col items-center cursor-pointer" onClick={() => handleStatusClick(stat)}>
+            <div className={`rounded-full p-0 ${statusClass(index)}`}>
+              {index <= statuses.indexOf(status) ? (
+                <FaCheckCircle className="text-lg" />
+              ) : (
+                <MdRadioButtonUnchecked className="text-lg" />
+              )}
+            </div>
+            <p className="mt-2 text-sm">{stat}</p>
           </div>
           {index !== statuses.length - 1 && (
-            <div className="flex-1 h-1 mx-2 bg-gray-300">
+            <div className="flex-grow h-1 bg-gray-300 mx-1 relative">
               <div
-                className={`h-1 ${statusClass(index)}`}
+                className={`absolute bottom-3 left-0 h-full ${index < statuses.indexOf(status) ? 'bg-green-500' : 'bg-gray-300'}`}
                 style={{ width: index < statuses.indexOf(status) ? '100%' : '0%' }}
               ></div>
             </div>
           )}
-          <p className="ml-2 text-sm">{stat}</p>
-        </div>
+        </React.Fragment>
       ))}
     </div>
   );
