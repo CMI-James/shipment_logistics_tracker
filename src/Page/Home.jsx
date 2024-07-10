@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
-import AboutHome from "../components/AboutHome";
+import AboutHome from "../components/AboutUs";
 import Ourservices from "../components/Ourservices";
 import WhyChooseUs from "../components/WhyChooseUs";
 import Services from "../components/Services";
@@ -42,7 +42,7 @@ const Home = () => {
       </a>
       <Hero />
       <hr />
-      <AboutHome />
+      <AboutHome isTruncated={true} />
       <hr />
       <Ourservices />
       <hr />

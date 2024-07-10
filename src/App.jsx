@@ -8,7 +8,9 @@ import AdminDashboard from "./AdminDashboard";
 import "./App.css";
 import "./index.css";
 import Home from "./Page/Home";
+import About from "./Page/About";
 import Policy from "./Page/Policy";
+import Services from "./Page/Services";
 import UserPage from "./User";
 
 const App = () => {
@@ -22,7 +24,9 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/policy" element={<Policy />} />
           <Route path="/userpage/:trackingCode" element={<UserPage />} />
-          <Route path="/user" element={<UserPage />} />
+          <Route path="/user" element={<UserPage />} />{" "}
+          <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
         </Routes>
       </Router>
     </div>

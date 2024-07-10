@@ -23,7 +23,7 @@ const Header = () => {
   ];
 
   return (
-    <div className="fixed w-full bg-white p-4 flex justify-between items-center shadow-md text-grey-450">
+    <div className="fixed w-full bg-white lg:px-12 px-4 py-4 flex justify-between items-center shadow-md text-grey-450">
       {/* Logo Section */}
       <Link to="/">
         <div className="flex items-center">
@@ -56,7 +56,10 @@ const Header = () => {
 
         {/* Hamburger Menu Icon */}
         <div className="lg:hidden flex items-center">
-          <button onClick={toggleMenu} className="text-orange-450">
+          <button
+            onClick={toggleMenu}
+            className={`${menuOpen ? "rotate-90 " : ""} text-orange-450 `}
+          >
             <AiOutlineMenu size={24} />
           </button>
         </div>
@@ -64,7 +67,7 @@ const Header = () => {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="absolute top-16 right-0 bg-white w-full shadow-lg lg:hidden">
-          <ul className="flex flex-col items-center space-y-4 p-4 font-semibold text-lg">
+          <ul className="flex flex-col items-center space-y-10 p-4 font-semibold text-lg">
             {navItems.map((item, index) => (
               <li key={index}>{item}</li>
             ))}
