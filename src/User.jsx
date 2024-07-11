@@ -53,9 +53,11 @@ const UserPage = () => {
 
   return (
     <div className="relative">
+      
       <div className="fixed z-50">
         <Header />
       </div>
+
       <div className="absolute inset-0 bg-orange-450 brightness-75 -z-10"></div>
       <div className="min-h-screen flex flex-col items-center pt-24 pb-6 px-4 md:px-0">
         <motion.form
@@ -177,10 +179,11 @@ const UserPage = () => {
             <p className="mb-2">
               <strong>Status:</strong> {cargo.status}
             </p>
-            <ShipmentStatusTracker/>
+     
           </motion.div>
         )}
       </div>
+      
     </div>
   );
 };

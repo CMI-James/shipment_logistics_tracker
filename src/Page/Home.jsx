@@ -65,7 +65,7 @@ const Home = () => {
       <Footer />
     </div>
   ) : (
-    <div className="w-full h-screen flex items-center justify-center">
+    <div className="w-full h-screen flex items-center bg-grey-450 justify-center">
       <ColorRing
         visible={true}
         height="120"

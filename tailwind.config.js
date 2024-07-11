@@ -1,4 +1,5 @@
 // Example tailwind.config.js
+import daisyui from "daisyui";
 module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
@@ -13,5 +14,8 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
+  daisyui: {
+    themes: ["light"], // specify the theme you want to use
+  },
 };
