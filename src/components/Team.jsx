@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const teamMembers = [
   {
@@ -27,14 +27,17 @@ const teamMembers = [
 
 const Team = () => {
   useEffect(() => {
-    AOS.init({ duration: 1000, offset: 200, easing: 'ease-in-out' });
+    AOS.init({ duration: 1000, offset: 200, easing: "ease-in-out" });
   }, []);
 
   return (
-    <div className="max-w-6xl mx-auto p-4">
-      <h2 className="text-3xl font-bold mb-4" data-aos="fade-up">Our Team</h2>
+    <div className=" w-full lg:px-24 px-4 py-20">
+      <h2 className="text-3xl font-bold mb-4" data-aos="fade-up">
+        Our Team
+      </h2>
       <p className="mb-6" data-aos="fade-up" data-aos-delay="200">
-        Meet some of the people through whom we have come this far. Thank you.
+        Meet some of the individuals who have helped us reach this milestone.
+        Thank you.
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {teamMembers.map((member, index) => (

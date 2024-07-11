@@ -2,9 +2,16 @@
 import { useState, useEffect } from 'react';
 
 const useImageLoader = (imageUrls) => {
-  const [loaded, setLoaded] = useState(false);
+  const [loaded, setLoaded] = useState(sessionStorage.getItem('imagesLoaded') === 'true');
 
   useEffect(() => {
+    if (loaded) {
+      console.log('Images already loaded in sessionStorage');
+      return;
+    }
+
+    console.log('Loading images for the first time');
+
     const images = imageUrls.map((url) => {
       const img = new Image();
       img.src = url;
@@ -13,23 +20,24 @@ const useImageLoader = (imageUrls) => {
 
     const checkImagesLoaded = () => {
       if (images.every((img) => img.complete)) {
+        console.log('All images loaded');
         setLoaded(true);
+        sessionStorage.setItem('imagesLoaded', 'true');
       }
     };
 
     images.forEach((img) => {
       img.onload = checkImagesLoaded;
-      img.onerror = checkImagesLoaded; // Also handle error cases
+      img.onerror = checkImagesLoaded;
     });
 
-    // Cleanup
     return () => {
       images.forEach((img) => {
         img.onload = null;
         img.onerror = null;
       });
     };
-  }, [imageUrls]);
+  }, [imageUrls, loaded]);
 
   return loaded;
 };

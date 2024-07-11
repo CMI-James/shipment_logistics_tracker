@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const FAQ = () => {
   const [open, setOpen] = useState(null);
@@ -8,7 +9,7 @@ const FAQ = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-4">
+    <div className="w-full lg:px-24 px-4 py-20">
       <h2 className="text-3xl font-bold mb-4">FAQs</h2>
       <p className="mb-6">
         Whether you've missed a delivery, want to track your parcel, or just have a few questions about your shipment, we're there to help as soon as we can. We've also put together a list of FAQs that may just provide an answer to your question. If they don't, please get in touch with our contact center.
@@ -31,7 +32,7 @@ const FAQ = () => {
           </div>
         ))}
       </div>
-      <a href="#" className="text-orange-500 mt-4 inline-block">Get More Answers</a>
+      <Link to="/faqs" className="text-orange-500 mt-4 inline-block hover:underline">Get More Answers</Link>
     </div>
   );
 };

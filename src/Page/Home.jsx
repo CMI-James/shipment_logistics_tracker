@@ -1,5 +1,6 @@
 // src/Page/Home.js
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import AboutHome from "../components/AboutUs";
@@ -13,8 +14,7 @@ import Partners from "../components/Partners";
 import ClientCarousel from "../components/ClientCarousel";
 import Footer from "../components/Footer";
 import ImageCarousel from "../components/ImageCarousel";
-import Loader from "../components/Loader"; // Import the Loader component
-import useImageLoader from "../hooks/useImageLoader"; // Import the custom hook
+import useImageLoader from "../hooks/useImageLoader";
 import { ColorRing } from "react-loader-spinner";
 import { IoLogoWhatsapp } from "react-icons/io5";
 
@@ -26,12 +26,32 @@ const Home = () => {
   ];
 
   const imagesLoaded = useImageLoader(heroImages);
+  const location = useLocation();
+
+  // Save scroll position when navigating away
+  useEffect(() => {
+    if (location.state && location.state.scrollPosition) {
+      window.scrollTo(0, location.state.scrollPosition);
+    }
+
+    const handleSaveScrollPosition = () => {
+      const scrollPosition = window.scrollY;
+      if (window.history.state) {
+        window.history.replaceState({ ...window.history.state, scrollPosition }, "");
+      } else {
+        window.history.replaceState({ scrollPosition }, "");
+      }
+    };
+
+    window.addEventListener("beforeunload", handleSaveScrollPosition);
+    return () => {
+      window.removeEventListener("beforeunload", handleSaveScrollPosition);
+    };
+  }, [location]);
 
   return imagesLoaded ? (
     <div className="relative">
-    
-        <Header />
-   
+      <Header />
       <a
         href="https://wa.me/2348148001157"
         target="_blank"
@@ -47,21 +67,21 @@ const Home = () => {
       <Ourservices />
       <hr />
       <WhyChooseUs />
-      <br />
+      <hr />
       <Services />
-      <br />
+      <hr />
       <ImageCarousel />
-      <br />
+      <hr />
       <Team />
-      <br />
+      <hr />
       <FAQ />
-      <br />
+      <hr />
       <Support />
-      <br />
+      <hr />
       <Partners />
-      <br />
+      <hr />
       <ClientCarousel />
-      <br />
+      <hr />
       <Footer />
     </div>
   ) : (
