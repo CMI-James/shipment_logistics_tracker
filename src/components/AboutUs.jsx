@@ -52,14 +52,14 @@ const AboutHome = ({ isTruncated }) => {
             Our shipping solutions connect people with endless possibilities.
           </h2>
           <p className="text-lg mt-2">
-            Trustway Logistics stands as a distinguished leader in the
-            shipping and logistics industry, operating under the esteemed banner
-            of the Trustway Logistics Group. With a comprehensive array of
-            shipping solutions encompassing road, air, and rail transport, we
-            specialize in facilitating seamless connections across the globe.
-            Our commitment to excellence ensures dependable and efficient
-            logistics services worldwide, meeting the diverse needs of our
-            global clientele with precision and reliability.
+            Trustway Logistics stands as a distinguished leader in the shipping
+            and logistics industry, operating under the esteemed banner of the
+            Trustway Logistics Group. With a comprehensive array of shipping
+            solutions encompassing road, air, and rail transport, we specialize
+            in facilitating seamless connections across the globe. Our
+            commitment to excellence ensures dependable and efficient logistics
+            services worldwide, meeting the diverse needs of our global
+            clientele with precision and reliability.
           </p>
         </div>
 

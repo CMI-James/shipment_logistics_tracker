@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { IoIosPin } from "react-icons/io";
+import { FiBox } from "react-icons/fi";
+import { BiSupport } from "react-icons/bi";
 
 import { TbWorld } from "react-icons/tb";
 const WhyChooseUs = () => {
@@ -6,25 +9,25 @@ const WhyChooseUs = () => {
 
   const features = [
     {
-      icon: <TbWorld />,
+      icon: <TbWorld className=" h-[2rem] w-[2rem]" />,
       title: "UNIVERSAL REACH",
       description:
         "Everyone recognizes the unique Sea Wave Logistics that stops in front of the door. Our commitment to reliability, speed, and transparency ensures that each parcel arrives safely and on time.",
     },
     {
-      icon: "map-marker-alt",
+      icon: <IoIosPin className=" h-[2rem] w-[2rem]" />,
       title: "TRACK & TRACE",
       description:
         "If you have registered a shipment, the recipient can automatically be sent the link to their track and trace to follow their parcel all the way to their front door.",
     },
     {
-      icon: "box",
+      icon: <FiBox className=" h-[2rem] w-[2rem]" />,
       title: "RETURNING PARCELS",
       description:
         "Sea Wave Logistics Parcel understands the importance of good return options. You can add a return label to your parcels, so that your customers can return their items via a Sea Wave Logistics point.",
     },
     {
-      icon: "headset",
+      icon: <BiSupport className=" h-[2rem] w-[2rem]" />,
       title: "GREAT SUPPORT",
       description:
         "Customers want quick answers about their deliveries. We can be reached on social media, e-mail, and telephone, even on Saturdays.",
@@ -58,7 +61,7 @@ const WhyChooseUs = () => {
             ) : (
               <img
                 src="/path-to-image.jpg"
-                alt="Sea Wave Logistics"
+                alt="Trustway Logistics"
                 className="w-full"
               />
             )}
@@ -66,9 +69,7 @@ const WhyChooseUs = () => {
         </div>
         <div className="w-full md:w-1/2">
           <h1 className="mb-4">Trustway Logistics</h1>
-          <h2 className="text-2xl font-semibold mb-4 text-orange-450">
-            Why Choose Us?
-          </h2>
+          <h2 className="text-4xl  mb-4 text-orange-450">Why Choose Us?</h2>
           <p className="mb-6">
             At Trustway Logistics, we prioritize long-term strategic
             partnerships with our customers. We are personally dedicated to
@@ -77,9 +78,11 @@ const WhyChooseUs = () => {
           </p>
           <ul className="p-0">
             {features.map((feature) => (
-              <li key={feature.title} className="mb-6 flex items-start">
-                <div className="text-orange-500 text-2xl">
-                  <i className={`fas fa-${feature.icon}`}></i>
+              <li key={feature.title} className="my-10 flex  items-start">
+                <div className=" w-fit flex justify-center items-center p-3 m-6 border-2 border-orange-450 bg-orange-450 rounded-full ">
+                  <span className="text-white ">
+                    {feature.icon}
+                  </span>
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold mb-2">
