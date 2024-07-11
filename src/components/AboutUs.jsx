@@ -119,9 +119,9 @@ const AboutHome = ({ isTruncated }) => {
           alt=""
           className="w-40 mt-8"
           data-aos="fade-up"
-          data-aos-delay="1200"
+          data-aos-delay="600"
         />
-        <h1 data-aos="fade-up" data-aos-delay="1400">
+        <h1 data-aos="fade-up" data-aos-delay="600">
           <span className="text-xl font-extrabold block">Michael Thompson</span>{" "}
           <span className="text-sm">Chief Executive Officer</span>
         </h1>

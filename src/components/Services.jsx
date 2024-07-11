@@ -34,21 +34,21 @@ const Services = () => {
   return (
     <div className="bg-white py-16 px-8">
       <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-4" data-aos="fade-up">More</h2>
-        <p className="text-gray-600 mb-8" data-aos="fade-up" data-aos-delay="200">
-          WE HAVE A WIDE NETWORK OF OFFICES IN ALL MAJOR LOCATIONS TO HELP YOU WITH YOUR EVERY SHIPPING NEED
+        <h2 className="text-5xl font-extrabold mb-4" data-aos="fade-up">More</h2>
+        <p className=" mb-8" data-aos="fade-up" data-aos-delay="200">
+        WE MAINTAIN AN EXTENSIVE NETWORK OF OFFICES IN ALL MAJOR LOCATIONS TO ASSIST YOU WITH ALL YOUR SHIPPING NEEDS.
         </p>
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8 mt-[5rem]">
           {services.map((service, index) => (
             <div
               key={service.id}
-              className="bg-white p-8 shadow-lg rounded-lg"
+              className="bg-white p-8 shadow-lg rounded-lg relative"
               data-aos="fade-up"
               data-aos-delay={400 + index * 200}
             >
-           <div className='flex justify-center items-center'>   {service.icon}</div>
-              <h3 className="text-xl font-bold mb-2">{service.title}</h3>
-              <p className="text-gray-700">
+           <div className='flex justify-center items-center absolute bottom-[11rem] right-[10rem]'>   {service.icon}</div>
+              <h3 className="text-xl font-bold mb-2 text-orange-450 ">{service.title}</h3>
+              <p className="">
                 {service.description}
               </p>
             </div>

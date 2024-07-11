@@ -10,27 +10,27 @@ const WhyChooseUs = () => {
   const features = [
     {
       icon: <TbWorld className=" h-[2rem] w-[2rem]" />,
-      title: "UNIVERSAL REACH",
+      title: "GLOBAL COVERAGE",
       description:
-        "Everyone recognizes the unique Trustway Logistics that stops in front of the door. Our commitment to reliability, speed, and transparency ensures that each parcel arrives safely and on time.",
+        "Everyone recognizes the distinctive Sea Wave Logistics vehicle that stops right at your door. Our dedication to reliability, speed, and transparency guarantees that every parcel arrives safely and on time.",
     },
     {
       icon: <IoIosPin className=" h-[2rem] w-[2rem]" />,
       title: "TRACK & TRACE",
       description:
-        "If you have registered a shipment, the recipient can automatically be sent the link to their track and trace to follow their parcel all the way to their front door.",
+        "Once you've registered a shipment, the recipient will automatically receive a link to track and trace their parcel right to their front door.",
     },
     {
       icon: <FiBox className=" h-[2rem] w-[2rem]" />,
-      title: "RETURNING PARCELS",
+      title: "RETURN PARCELS",
       description:
-        "Trustway Logistics Parcel understands the importance of good return options. You can add a return label to your parcels, so that your customers can return their items via a Trustway Logistics point.",
+        "Trustway Logistics Parcel recognizes the importance of convenient return options. You can include a return label with your parcels, allowing your customers to easily return items through any Trustway Logistics point.",
     },
     {
       icon: <BiSupport className=" h-[2rem] w-[2rem]" />,
-      title: "GREAT SUPPORT",
+      title: "EXCELLENT SUPPORT",
       description:
-        "Customers want quick answers about their deliveries. We can be reached on social media, e-mail, and telephone, even on Saturdays.",
+        "Customers seek quick answers about their deliveries. We are available via social media, email, and telephone, even on Saturdays.",
     },
   ];
 
@@ -80,9 +80,7 @@ const WhyChooseUs = () => {
             {features.map((feature) => (
               <li key={feature.title} className="my-10 flex  items-start">
                 <div className=" w-fit flex justify-center items-center p-3 m-6 border-2 border-orange-450 bg-orange-450 rounded-full ">
-                  <span className="text-white ">
-                    {feature.icon}
-                  </span>
+                  <span className="text-white ">{feature.icon}</span>
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold mb-2 text-orange-450">

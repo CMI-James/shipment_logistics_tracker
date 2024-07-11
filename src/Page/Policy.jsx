@@ -70,25 +70,24 @@ const policyData = [
 const Policy = () => {
   return (
     <div>
-       <div className="absolute z-10  ">
-        <Header />
-      </div>
+      <Header />
+
       <div className="p-4 lg:p-8">
-      <h1 className="text-3xl font-bold mb-6">Our Policy</h1>
-      {policyData.map((section, sectionIndex) => (
-        <section key={sectionIndex} className="mb-8">
-          <h2 className="text-2xl font-semibold mb-4">
-            {section.sectionTitle}
-          </h2>
-          {section.subsections.map((subsection, subsectionIndex) => (
-            <div key={subsectionIndex} className="mb-4">
-              <h3 className="text-xl font-semibold">{subsection.title}</h3>
-              <p className="mb-4">{subsection.content}</p>
-            </div>
-          ))}
-        </section>
-      ))}
-    </div>
+        <h1 className="text-3xl font-bold mb-6">Our Policy</h1>
+        {policyData.map((section, sectionIndex) => (
+          <section key={sectionIndex} className="mb-8">
+            <h2 className="text-2xl font-semibold mb-4">
+              {section.sectionTitle}
+            </h2>
+            {section.subsections.map((subsection, subsectionIndex) => (
+              <div key={subsectionIndex} className="mb-4">
+                <h3 className="text-xl font-semibold">{subsection.title}</h3>
+                <p className="mb-4">{subsection.content}</p>
+              </div>
+            ))}
+          </section>
+        ))}
+      </div>
     </div>
   );
 };

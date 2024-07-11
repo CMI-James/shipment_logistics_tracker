@@ -29,9 +29,9 @@ const Home = () => {
 
   return imagesLoaded ? (
     <div className="relative">
-      <div className="absolute z-10  ">
+    
         <Header />
-      </div>
+   
       <a
         href="https://wa.me/2348148001157"
         target="_blank"

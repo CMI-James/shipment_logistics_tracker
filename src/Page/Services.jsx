@@ -7,9 +7,9 @@ const Services = () => {
   return (
     <div>
       {" "}
-      <div className="absolute z-10  ">
+     
         <Header/>
-      </div>
+ 
       <div><p className="text-8">Services</p></div>
       <Ourservices />
       <Footer />
