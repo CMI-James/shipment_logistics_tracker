@@ -11,17 +11,15 @@ const Header = () => {
     setMenuOpen(!menuOpen); // Toggle the state of the mobile menu
   };
 
-  // Array of navigation items
   const navItems = [
-    "About us",
-    "Our Team",
-    "Our Services",
-    "FAQs",
-    "Support",
-    "Policy",
-    "Parcel",
+    { name: "About us", path: "/about" },
+    { name: "Our Team", path: "/team" },
+    { name: "Our Services", path: "/services" },
+    { name: "FAQs", path: "/faqs" },
+    { name: "Support", path: "/support" },
+    { name: "Policy", path: "/policy" },
+    { name: "Parcel", path: "/parcel" },
   ];
-
   return (
     <div className="fixed w-full bg-white lg:px-12 px-4 py-4 flex justify-between items-center shadow-md text-grey-450">
       {/* Logo Section */}
@@ -39,7 +37,9 @@ const Header = () => {
       <div className="hidden lg:flex flex-1 justify-center">
         <ul className="flex space-x-6 font-semibold text-lg">
           {navItems.map((item, index) => (
-            <li key={index}>{item}</li>
+            <li key={index}>
+              <Link to={item.path}>{item.name}</Link>
+            </li>
           ))}
         </ul>
       </div>
@@ -69,7 +69,9 @@ const Header = () => {
         <div className="absolute top-16 right-0 bg-white w-full shadow-lg lg:hidden">
           <ul className="flex flex-col items-center space-y-10 p-4 font-semibold text-lg">
             {navItems.map((item, index) => (
-              <li key={index}>{item}</li>
+              <li key={index}>
+                <Link to={item.path}>{item.name}</Link>
+              </li>
             ))}
           </ul>
         </div>

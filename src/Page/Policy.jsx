@@ -1,4 +1,5 @@
 import React from "react";
+import Header from "../components/Header";
 const policyData = [
   {
     sectionTitle: "PERSONAL DATA",
@@ -68,7 +69,11 @@ const policyData = [
 
 const Policy = () => {
   return (
-    <div className="p-4 lg:p-8">
+    <div>
+       <div className="absolute z-10  ">
+        <Header />
+      </div>
+      <div className="p-4 lg:p-8">
       <h1 className="text-3xl font-bold mb-6">Our Policy</h1>
       {policyData.map((section, sectionIndex) => (
         <section key={sectionIndex} className="mb-8">
@@ -83,6 +88,7 @@ const Policy = () => {
           ))}
         </section>
       ))}
+    </div>
     </div>
   );
 };

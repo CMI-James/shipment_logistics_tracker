@@ -12,6 +12,10 @@ import About from "./Page/About";
 import Policy from "./Page/Policy";
 import Services from "./Page/Services";
 import UserPage from "./User";
+import Team from "./Page/Team";
+import FAQs from "./Page/FAQs";
+import Support from "./Page/Support";
+import Parcel from "./Page/Parcel";
 
 const App = () => {
   return (
@@ -27,6 +31,10 @@ const App = () => {
           <Route path="/user" element={<UserPage />} />{" "}
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/team" element={<Team />} />
+          <Route path="/faqs" element={<FAQs />} />
+          <Route path="/support" element={<Support />} />
+          <Route path="/parcel" element={<Parcel />} />
         </Routes>
       </Router>
     </div>
