@@ -12,7 +12,7 @@ const WhyChooseUs = () => {
       icon: <TbWorld className=" h-[2rem] w-[2rem]" />,
       title: "UNIVERSAL REACH",
       description:
-        "Everyone recognizes the unique Sea Wave Logistics that stops in front of the door. Our commitment to reliability, speed, and transparency ensures that each parcel arrives safely and on time.",
+        "Everyone recognizes the unique Trustway Logistics that stops in front of the door. Our commitment to reliability, speed, and transparency ensures that each parcel arrives safely and on time.",
     },
     {
       icon: <IoIosPin className=" h-[2rem] w-[2rem]" />,
@@ -24,7 +24,7 @@ const WhyChooseUs = () => {
       icon: <FiBox className=" h-[2rem] w-[2rem]" />,
       title: "RETURNING PARCELS",
       description:
-        "Sea Wave Logistics Parcel understands the importance of good return options. You can add a return label to your parcels, so that your customers can return their items via a Sea Wave Logistics point.",
+        "Trustway Logistics Parcel understands the importance of good return options. You can add a return label to your parcels, so that your customers can return their items via a Trustway Logistics point.",
     },
     {
       icon: <BiSupport className=" h-[2rem] w-[2rem]" />,
@@ -85,7 +85,7 @@ const WhyChooseUs = () => {
                   </span>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-2">
+                  <h3 className="text-xl font-semibold mb-2 text-orange-450">
                     {feature.title}
                   </h3>
                   <p>{feature.description}</p>
