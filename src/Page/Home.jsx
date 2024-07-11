@@ -6,7 +6,7 @@ import Hero from "../components/Hero";
 import AboutHome from "../components/AboutUs";
 import Ourservices from "../components/Ourservices";
 import WhyChooseUs from "../components/WhyChooseUs";
-import Services from "../components/Services";
+import MoreServices from "../components/More";
 import FAQ from "../components/FAQ";
 import Team from "../components/Team";
 import Support from "../components/Support";
@@ -68,7 +68,7 @@ const Home = () => {
       <hr />
       <WhyChooseUs />
       <hr />
-      <Services />
+      <MoreServices />
       <hr />
       <ImageCarousel />
       <hr />

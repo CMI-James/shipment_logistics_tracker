@@ -11,19 +11,19 @@ import { GiWorld } from "react-icons/gi";
 import { truncateText } from "../utils/utils";
 const items = [
   {
-    icon: <IoMdFingerPrint className=" h-[2rem] w-[2rem]" />,
+    icon: <IoMdFingerPrint />,
     title: "EXCELLENCE",
     description:
       "We meticulously assess our strategy every five years. Strategy 2029 serves as the blueprint for our operational framework at Trustway Logistics - Ensuring Excellence in a Digital Era. It outlines our approach to reshaping our industry through digitalization, aiming to foster connectivity and enhance lives. This reaffirms our position as a leading global logistics service provider. Strategy 2025 harnesses the power of digitalization to propel our vision forward.",
   },
   {
-    icon: <IoGift className=" h-[2rem] w-[2rem]" />,
+    icon: <IoGift />,
     title: "FIRST CHOICE",
     description:
       "Trustway Logistics has remarkable clients worldwide, and we're committed to maintaining their loyalty. That's why we prioritize exceptional service and our First Choice program, designed to continuously advance our team's capabilities daily. Our motto, 'Everybody. Everyday. Everywhere. A little bit better,' guides us in this endeavor.",
   },
   {
-    icon: <GiWorld className=" h-[2rem] w-[2rem]" />,
+    icon: <GiWorld />,
     title: "A BIGGER WORLD",
     description:
       "Trustway Logistics contributes to a sustainable world through our logistics operations. Tackling this significant challenge, the Trustway Logistics Group has set an ambitious goal for climate protection: achieving zero-emissions logistics by 2064. How will we accomplish this?",
@@ -71,11 +71,15 @@ const AboutHome = ({ isTruncated }) => {
               data-aos="fade-up"
               data-aos-delay={600 + index * 200}
             >
+             
               <div className="w-fit flex justify-center items-center p-2 border-2 border-orange-450 bg-white rounded-full transition-all duration-500 ease-linear  group-hover:bg-orange-450">
-                <span className="text-orange-450 transition-all duration-500 ease-linear group-hover:text-white">
-                  {item.icon}
-                </span>
-              </div>
+                  <span
+                    className="text-orange-450 transition-all duration-500 ease-linear group-hover:text-white text-6xl  flex justify-center items-center h-[2rem] w-[2rem]
+"
+                  >
+                 {item.icon}
+                  </span>
+                </div>
 
               <div>
                 <h1 className="pb-4 text-xl font-bold hover:text-orange-450">
