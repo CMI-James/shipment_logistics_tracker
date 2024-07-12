@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const FAQ = () => {
+const FAQComponent= () => {
   const [open, setOpen] = useState(null);
 
   const toggle = (index) => {
@@ -52,4 +52,4 @@ const faqData = [
   },
 ];
 
-export default FAQ;
+export default FAQComponent;

@@ -222,9 +222,9 @@ const AdminDashboard = () => {
     <div className="relative">
       {unlock && (
         <div>
-          <div className=" fixed z-50">
+          
             <Header />
-          </div>
+          
           <div className="absolute inset-0 bg-orange-450 brightness-75 -z-10"></div>
           <div className="min-h-screen w-full flex flex-col items-center relative">
             <div className="flex px-[0.5rem] pt-24 pb-[1rem]    flex-col  lg:w-[40%] md:w-[60%] w-full">

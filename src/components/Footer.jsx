@@ -1,6 +1,8 @@
 import React from "react";
 import header_logo from "/images/header_logo.svg";
 import { Link } from "react-router-dom";
+import { FaFacebookF, FaInstagram, FaXTwitter } from "react-icons/fa6";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 const Footer = () => {
   const companyLinks = [
     { name: "About us", url: "#" },
@@ -19,7 +21,7 @@ const Footer = () => {
   return (
     <footer className="bg-gray-100  w-full lg:px-12 px-4 py-20 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between">
+        <div className="flex flex-col md:flex-row justify-between">
           <div className="w-full md:w-1/3  mb-6 overflow-hidden text-ellipsis">
             <Link to="/">
               <div className="flex items-center">
@@ -30,7 +32,7 @@ const Footer = () => {
                 />
               </div>
             </Link>
-            <address className="flex flex-col my-2 text-gray-500 text-sm gap-2 not-italic">
+            <address className="flex flex-col my-2 text-gray-500 text-sm gap-3 not-italic">
               <p>347-349 Goswell Rd, The Angel, EC1V 7JN, UK</p>
               <p>
                 <strong>Phone:</strong> +62895342604103, +1(305)518-5146
@@ -57,10 +59,17 @@ const Footer = () => {
           </div>
           <div className="w-full md:w-1/3 md:pl-[2rem] mb-6">
             <h3 className="text-lg font-semibold mb-2">OUR COMPANY</h3>
-            <ul>
+            <ul className="flex flex-col gap-3">
               {companyLinks.map((link) => (
                 <li key={link.name}>
-                  <a href={link.url} className="text-orange-500">
+                  <a
+                    href={link.url}
+                    className="text-gray-500 flex items-center"
+                  >
+                    <span className="text-orange-450">
+                      {" "}
+                      <MdOutlineKeyboardArrowRight />
+                    </span>
                     {link.name}
                   </a>
                 </li>
@@ -71,10 +80,17 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-2">
               MORE FROM TRUSTWAY LOGISTICS
             </h3>
-            <ul>
+            <ul className="flex flex-col gap-3">
               {moreLinks.map((link) => (
                 <li key={link.name}>
-                  <a href={link.url} className="text-orange-500">
+                  <a
+                    href={link.url}
+                    className="text-gray-500 flex items-center"
+                  >
+                    <span className="text-orange-450">
+                      {" "}
+                      <MdOutlineKeyboardArrowRight />
+                    </span>
                     {link.name}
                   </a>
                 </li>
@@ -82,8 +98,8 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        <div className="mt-6 text-center border-t border-gray-300 pt-6">
-          <p className="text-sm text-left text-gray-500">
+        <div className="mt-6 text-center  pt-6">
+          <p className="text-sm text-center md:text-left text-gray-500">
             Trustway Logistics is committed to safeguarding the privacy of our
             website users. When you visit our web pages, our servers temporarily
             store connection data for security purposes, including the
@@ -103,24 +119,23 @@ const Footer = () => {
             better suit your needs, and improve overall usability.
           </p>
           <div className="mt-6">
-            <button className="bg-blue-900 text-white py-2 px-6 rounded-lg">
-              Track & Trace
-            </button>
+            <Link to="/user">
+              <button className="bg-blue-900 text-white py-2 px-6 rounded-lg">
+                Track & Trace
+              </button>
+            </Link>
           </div>
-          <div className="mt-6 flex justify-center space-x-4">
-            <a href="#" className="text-orange-500">
-              <i className="fab fa-twitter"></i>
-            </a>
-            <a href="#" className="text-orange-500">
-              <i className="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" className="text-orange-500">
-              <i className="fab fa-instagram"></i>
-            </a>
+          <div className="flex flex-col md:flex-row w-full justify-between items-center ">
+            {" "}
+            <div className="mt-6 text-center text-sm text-gray-500">
+              © 2009 - 2024 Trustway Logistics. All Rights Reserved
+            </div>
+            <div className="mt-6 flex justify-center space-x-4">
+              <FaFacebookF className="border border-orange-450 bg-orange-450 text-white rounded-full p-1 text-2xl" />
+              <FaInstagram className="border border-orange-450 bg-orange-450 text-white rounded-full p-1 text-2xl" />
+              <FaXTwitter className="border border-orange-450 bg-orange-450 text-white rounded-full p-1 text-2xl" />
+            </div>
           </div>
-        </div>
-        <div className="mt-6 text-center text-sm text-gray-500">
-          © 2009 - 2024 Trustway Logistics. All Rights Reserved
         </div>
       </div>
     </footer>

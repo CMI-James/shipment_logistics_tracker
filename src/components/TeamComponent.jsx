@@ -25,7 +25,7 @@ const teamMembers = [
   },
 ];
 
-const Team = () => {
+const TeamComponent = () => {
   useEffect(() => {
     AOS.init({ duration: 1000, offset: 200, easing: "ease-in-out" });
   }, []);
@@ -63,4 +63,4 @@ const Team = () => {
   );
 };
 
-export default Team;
+export default TeamComponent;

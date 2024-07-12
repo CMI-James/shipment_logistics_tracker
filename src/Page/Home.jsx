@@ -7,8 +7,8 @@ import AboutHome from "../components/AboutUs";
 import Ourservices from "../components/Ourservices";
 import WhyChooseUs from "../components/WhyChooseUs";
 import MoreServices from "../components/More";
-import FAQ from "../components/FAQ";
-import Team from "../components/Team";
+import FAQ from "../components/FAQComponent";
+import TeamComponent from "../components/TeamComponent";
 import Support from "../components/Support";
 import Partners from "../components/Partners";
 import ClientCarousel from "../components/ClientCarousel";
@@ -17,6 +17,7 @@ import ImageCarousel from "../components/ImageCarousel";
 import useImageLoader from "../hooks/useImageLoader";
 import { ColorRing } from "react-loader-spinner";
 import { IoLogoWhatsapp } from "react-icons/io5";
+import FAQComponent from "../components/FAQComponent";
 
 const Home = () => {
   const heroImages = [
@@ -37,7 +38,10 @@ const Home = () => {
     const handleSaveScrollPosition = () => {
       const scrollPosition = window.scrollY;
       if (window.history.state) {
-        window.history.replaceState({ ...window.history.state, scrollPosition }, "");
+        window.history.replaceState(
+          { ...window.history.state, scrollPosition },
+          ""
+        );
       } else {
         window.history.replaceState({ scrollPosition }, "");
       }
@@ -72,9 +76,9 @@ const Home = () => {
       <hr />
       <ImageCarousel />
       <hr />
-      <Team />
+      <TeamComponent />
       <hr />
-      <FAQ />
+      <FAQComponent/>
       <hr />
       <ClientCarousel />
       <hr />

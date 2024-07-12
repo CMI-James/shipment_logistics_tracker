@@ -53,10 +53,7 @@ const UserPage = () => {
 
   return (
     <div className="relative">
-      
-      <div className="fixed z-50">
-        <Header />
-      </div>
+      <Header />
 
       <div className="absolute inset-0 bg-orange-450 brightness-75 -z-10"></div>
       <div className="min-h-screen flex flex-col items-center pt-24 pb-6 px-4 md:px-0">
@@ -145,7 +142,7 @@ const UserPage = () => {
                 <strong>Email:</strong> {cargo.receiver.email}
               </p>
             </div>
-           
+
             <div className="px-2 py-1 border-[1px] border-grey-450 mb-4 rounded-md  bg-grey-450 text-white">
               <p className="mb-2 flex justify-between">
                 <strong>Origin:</strong> {cargo.countryFrom.label}
@@ -168,22 +165,20 @@ const UserPage = () => {
                 ).toLocaleDateString()}
               </p>
             </div>
-           <div className="px-2 py-1 border-[1px] border-grey-450 mb-4 rounded-md  bg-grey-450 text-white">
-           <p className="mb-2 flex gap-4 justify-between w-full">
-              <strong>Content:</strong> {cargo.contentName}
-            </p>
-            <p className="mb-2 flex gap-4 justify-between">
-              <strong>Custom Fee:</strong> {cargo.customClearanceFee}
-            </p>
-           </div>
+            <div className="px-2 py-1 border-[1px] border-grey-450 mb-4 rounded-md  bg-grey-450 text-white">
+              <p className="mb-2 flex gap-4 justify-between w-full">
+                <strong>Content:</strong> {cargo.contentName}
+              </p>
+              <p className="mb-2 flex gap-4 justify-between">
+                <strong>Custom Fee:</strong> {cargo.customClearanceFee}
+              </p>
+            </div>
             <p className="mb-2">
               <strong>Status:</strong> {cargo.status}
             </p>
-     
           </motion.div>
         )}
       </div>
-      
     </div>
   );
 };
