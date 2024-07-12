@@ -45,7 +45,7 @@ const Partners = () => {
   ];
 
   return (
-    <div className="max-w-6xl mx-auto p-4">
+    <div className="w-full lg:px-24 px-4 py-20">
       <h2 className="text-3xl font-bold mb-4">Tested & Trusted</h2>
       <h3 className="text-2xl font-bold mb-6">Partners</h3>
       <Slider {...settings}>

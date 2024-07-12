@@ -76,11 +76,11 @@ const Home = () => {
       <hr />
       <FAQ />
       <hr />
+      <ClientCarousel />
+      <hr />
       <Support />
       <hr />
       <Partners />
-      <hr />
-      <ClientCarousel />
       <hr />
       <Footer />
     </div>

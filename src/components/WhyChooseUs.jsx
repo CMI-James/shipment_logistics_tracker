@@ -79,12 +79,8 @@ const WhyChooseUs = () => {
           <ul className="p-0">
             {features.map((feature) => (
               <li key={feature.title} className="my-10 flex  items-start">
-              
                 <div className="w-fit flex justify-center items-center p-3 m-6 border-2 border-orange-450 bg-orange-450 rounded-full ">
-                  <span
-                    className="text-white  text-6xl  flex justify-center items-center h-[2rem] w-[2rem]
-"
-                  >
+                  <span className="text-white  text-6xl  flex justify-center items-center h-[2rem] w-[2rem]">
                     {feature.icon}
                   </span>
                 </div>
