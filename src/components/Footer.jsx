@@ -1,21 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import header_logo from "/images/header_logo.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaFacebookF, FaInstagram, FaXTwitter } from "react-icons/fa6";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+import { TailSpin } from "react-loader-spinner";
+
 const Footer = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [trackingCode, setTrackingCode] = useState("");
+  const navigate = useNavigate();
+
+  const handleTrackClick = () => {
+    setIsLoading(true);
+    if (trackingCode.trim()) {
+      navigate(`/userpage/${trackingCode}`);
+    }
+    setIsLoading(false);
+  };
+
   const companyLinks = [
-    { name: "About us", url: "#" },
-    { name: "Services", url: "#" },
-    { name: "Terms of Services", url: "#" },
-    { name: "Contact Us", url: "#" },
+    { name: "About us", path: "/about" },
+    { name: "Services", path: "/services" },
+    { name: "Terms of Services", path: "/policy" },
+    { name: "Contact Us", path: "/support" },
   ];
 
   const moreLinks = [
-    { name: "Track & Trace", url: "#" },
-    { name: "Request For A Shipment", url: "#" },
-    { name: "Frequently Asked Questions", url: "#" },
-    { name: "Corporate Responsibility", url: "#" },
+    { name: "Track & Trace", path: "/user" },
+    { name: "Request For A Shipment", path: "/" },
+    { name: "Frequently Asked Questions", path: "/faqs" },
+    { name: "Corporate Responsibility", path: "/policy" },
   ];
 
   return (
@@ -62,8 +76,8 @@ const Footer = () => {
             <ul className="flex flex-col gap-3">
               {companyLinks.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.url}
+                  <Link
+                    to={link.path}
                     className="text-gray-500 flex items-center"
                   >
                     <span className="text-orange-450">
@@ -71,7 +85,7 @@ const Footer = () => {
                       <MdOutlineKeyboardArrowRight />
                     </span>
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -83,8 +97,8 @@ const Footer = () => {
             <ul className="flex flex-col gap-3">
               {moreLinks.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.url}
+                  <Link
+                    to={link.path}
                     className="text-gray-500 flex items-center"
                   >
                     <span className="text-orange-450">
@@ -92,7 +106,7 @@ const Footer = () => {
                       <MdOutlineKeyboardArrowRight />
                     </span>
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -118,12 +132,30 @@ const Footer = () => {
             services we provide, tailor our website's content and services to
             better suit your needs, and improve overall usability.
           </p>
-          <div className="mt-6">
-            <Link to="/user">
-              <button className="bg-blue-900 text-white py-2 px-6 rounded-lg">
-                Track & Trace
-              </button>
-            </Link>
+          <div className="mt-6 flex flex-col md:flex-row w-full justify-center">
+            <input
+              type="text"
+              placeholder="Tracking ID"
+              value={trackingCode}
+              onChange={(e) => setTrackingCode(e.target.value)}
+              className="border  border-gray-300 py-2 px-6 focus:outline-none rounded-md  text-black"
+            />
+            <button className="bg-blue-900 text-white py-2 px-6 rounded-lg">
+              {isLoading ? (
+                <TailSpin
+                  visible={true}
+                  height="80"
+                  width="80"
+                  color="#4fa94d"
+                  ariaLabel="tail-spin-loading"
+                  radius="1"
+                  wrapperStyle={{}}
+                  wrapperClass=""
+                />
+              ) : (
+                "  Track & Trace"
+              )}
+            </button>
           </div>
           <div className="flex flex-col md:flex-row w-full justify-between items-center ">
             {" "}
@@ -131,9 +163,9 @@ const Footer = () => {
               © 2009 - 2024 Trustway Logistics. All Rights Reserved
             </div>
             <div className="mt-6 flex justify-center space-x-4">
-              <FaFacebookF className="border border-orange-450 bg-orange-450 text-white rounded-full p-1 text-2xl" />
-              <FaInstagram className="border border-orange-450 bg-orange-450 text-white rounded-full p-1 text-2xl" />
-              <FaXTwitter className="border border-orange-450 bg-orange-450 text-white rounded-full p-1 text-2xl" />
+              <FaFacebookF className="border border-orange-450 bg-orange-450 text-white rounded-full p-1 text-3xl" />
+              <FaInstagram className="border border-orange-450 bg-orange-450 text-white rounded-full p-1 text-3xl" />
+              <FaXTwitter className="border border-orange-450 bg-orange-450 text-white rounded-full p-1 text-3xl" />
             </div>
           </div>
         </div>

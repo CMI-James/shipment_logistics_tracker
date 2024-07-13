@@ -2,6 +2,8 @@ import React from "react";
 import { BiSolidPhoneCall } from "react-icons/bi";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdOutlineEmail } from "react-icons/md";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const contactDetails = [
   {
@@ -22,6 +24,8 @@ const contactDetails = [
 ];
 
 const Support = () => {
+  
+
   return (
     <div className="w-full lg:px-24 px-4 py-20">
       <h2 className="text-3xl font-bold mb-4">Get Support</h2>
@@ -66,6 +70,8 @@ const Support = () => {
           <div
             key={index}
             className="flex gap-2 bg-white shadow-md rounded-lg p-4 items-center"
+            data-aos="fade-up"
+            data-aos-delay={400 + index * 200}
           >
             <div className="w-fit flex justify-center items-center p-2  border-2 border-dotted border-orange-450 bg-white rounded-full">
               <span className="text-orange-450 text-3xl flex justify-center items-center h-6 w-6">

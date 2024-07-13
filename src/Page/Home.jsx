@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import AboutHome from "../components/AboutUs";
-import Ourservices from "../components/Ourservices";
+import ServicesComponent from "../components/ServicesComponent";
 import WhyChooseUs from "../components/WhyChooseUs";
 import MoreServices from "../components/More";
 import FAQ from "../components/FAQComponent";
@@ -68,7 +68,7 @@ const Home = () => {
       <hr />
       <AboutHome isTruncated={true} />
       <hr />
-      <Ourservices />
+      <ServicesComponent />
       <hr />
       <WhyChooseUs />
       <hr />

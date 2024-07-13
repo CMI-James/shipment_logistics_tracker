@@ -6,13 +6,12 @@ import truck from "/images/truck4.jpg";
 import airplane from "/images/airplane.jpg";
 import ship_ from "/images/ship_.jpeg";
 
-
 const services = [
   {
     id: 1,
     title: "TRUCKING SERVICES",
     description:
-     "If you need a dependable logistics provider for quality Road Freight Services (Road Transportation) that meets your exact shipping requirements with reliable, time-saving, and cost-effective solutions, Trustway Logistics is your ideal choice.",
+      "If you need a dependable logistics provider for quality Road Freight Services (Road Transportation) that meets your exact shipping requirements with reliable, time-saving, and cost-effective solutions, Trustway Logistics is your ideal choice.",
     image: truck,
     alt: "Trucking Services",
   },
@@ -20,7 +19,7 @@ const services = [
     id: 2,
     title: "AIR FREIGHT",
     description:
-    "Need a one-stop solution for your international air freight and forwarding needs, whereas a faster, safer and cost effective way to ship and track your cargo by air to anywhere across the globe? Look no further than Sea Wave Logistics, for we take it there.",
+      "Need a one-stop solution for your international air freight and forwarding needs, whereas a faster, safer and cost effective way to ship and track your cargo by air to anywhere across the globe? Look no further than Sea Wave Logistics, for we take it there.",
     image: airplane,
     alt: "Air Freight",
   },
@@ -28,13 +27,13 @@ const services = [
     id: 3,
     title: "OCEAN FREIGHT",
     description:
-     "Trustway Logistics' Ocean Freight Services have consistently shown exceptional quality to businesses and individuals with specific needs. We are dedicated to delivering efficient shipping solutions, including handling, ordering, pickup, and timely delivery.",
+      "Trustway Logistics' Ocean Freight Services have consistently shown exceptional quality to businesses and individuals with specific needs. We are dedicated to delivering efficient shipping solutions, including handling, ordering, pickup, and timely delivery.",
     image: ship_,
     alt: "Ocean Freight",
   },
 ];
 
-const Ourservices = () => {
+const ServicesComponent = () => {
   useEffect(() => {
     AOS.init({ duration: 500, offset: 100, easing: "ease-in-out" });
   }, []);
@@ -97,4 +96,4 @@ const Ourservices = () => {
   );
 };
 
-export default Ourservices;
+export default ServicesComponent;
