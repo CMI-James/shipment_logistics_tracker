@@ -41,7 +41,7 @@ const ClientCarousel = () => {
     <div className="w-full flex flex-col items-center justify-center text-center bg-grey-450 text-white lg:px-24 px-4 py-20">
       <div className=" w-full text-left font-bold mb-4 ">
         <p className="block text-sm mb-2">SATISFIED</p>{" "}
-        <h2 className="text-5xl font-extrabold">Clients</h2>
+        <h2 className="text-4xl font-bold">Clients</h2>
       </div>
       <div className="w-full max-w-xl">
         <Slider {...settings}>

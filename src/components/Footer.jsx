@@ -140,7 +140,7 @@ const Footer = () => {
               onChange={(e) => setTrackingCode(e.target.value)}
               className="border  border-gray-300 py-2 px-6 focus:outline-none rounded-md  text-black"
             />
-            <button className="bg-blue-900 text-white py-2 px-6 rounded-lg">
+            <button   onClick={handleTrackClick} className="bg-blue-900 text-white py-2 px-6 rounded-lg">
               {isLoading ? (
                 <TailSpin
                   visible={true}

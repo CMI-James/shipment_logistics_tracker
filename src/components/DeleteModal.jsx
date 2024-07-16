@@ -1,11 +1,11 @@
-// src/components/DeleteModal.js
 import React from "react";
 import Modal from "react-modal";
 import cancel from "/images/cancel.svg";
+import { TailSpin } from "react-loader-spinner";
 
 Modal.setAppElement("#root");
 
-const DeleteModal = ({ isOpen, onRequestClose, onConfirm }) => {
+const DeleteModal = ({ isOpen, onRequestClose, onConfirm, deleteLoading }) => {
   return (
     <Modal
       isOpen={isOpen}
@@ -22,7 +22,7 @@ const DeleteModal = ({ isOpen, onRequestClose, onConfirm }) => {
           padding: "0",
           width: "20rem",
           height: "auto",
-          borderRadius: "20px",
+          borderRadius: "10px",
         },
       }}
     >
@@ -37,14 +37,25 @@ const DeleteModal = ({ isOpen, onRequestClose, onConfirm }) => {
         <h2 className="text-center text-lg">Are you sure?</h2>
         <div className="flex justify-around mt-4">
           <button
+           disabled={deleteLoading}
             onClick={onConfirm}
-            className="bg-red-500 text-white py-2 px-4 rounded"
+            className="bg-red-500 text-white py-2 px-4 rounded flex justify-center items-center"
           >
-            Yes
+            {deleteLoading ? (
+              <TailSpin
+                visible={true}
+                height="24"
+                width="24"
+                color="#ffffff"
+                ariaLabel="tail-spin-loading"
+              />
+            ) : (
+              "Yes"
+            )}
           </button>
           <button
             onClick={onRequestClose}
-            className="bg-gray-500 text-white py-2 px-4 rounded"
+            className="bg-blue-600 text-white py-2 px-4 rounded"
           >
             No
           </button>

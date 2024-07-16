@@ -20,7 +20,7 @@ import Select from "react-select";
 import countryList from "react-select-country-list";
 import ShipmentStatusTracker from "./ShipmentStatusTracker";
 import { FaEdit } from "react-icons/fa";
-import { MdDelete, MdOutlineCreateNewFolder } from "react-icons/md";
+import { MdDelete, MdOutlineContentCopy, MdOutlineCreateNewFolder } from "react-icons/md";
 import DeleteModal from "./components/DeleteModal";
 import { Rings, TailSpin, Triangle } from "react-loader-spinner";
 import Header from "./components/Header";
@@ -32,8 +32,18 @@ const AdminDashboard = () => {
   const { currentUser } = useAuth();
   const navigate = useNavigate();
   const [unlock, setUnlock] = useState(false);
-  const countryOptions = countryList().getData();
 
+  const countryOptions = countryList()
+    .getData()
+    .map((country) => {
+      if (country.label === "Korea, Democratic People's Republic of") {
+        return { value: "KP", label: "North Korea" };
+      }
+      if (country.label === "Korea, Republic of") {
+        return { value: "KR", label: "South Korea" };
+      }
+      return country;
+    });
   useEffect(() => {
     if (!currentUser) {
       navigate("/admin");
@@ -63,17 +73,18 @@ const AdminDashboard = () => {
   const [loading, setLoading] = useState(false);
   const [searchInput, setSearchInput] = useState("");
 
+  const [deleteLoading, setDeleteLoading] = useState(false); // Add this line
+  const fetchShipments = async () => {
+    setLoading(true);
+    const querySnapshot = await getDocs(collection(db, "shipments"));
+    const shipmentsData = querySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+    setShipments(shipmentsData);
+    setLoading(false);
+  };
   useEffect(() => {
-    const fetchShipments = async () => {
-      setLoading(true);
-      const querySnapshot = await getDocs(collection(db, "shipments"));
-      const shipmentsData = querySnapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      setShipments(shipmentsData);
-      setLoading(false);
-    };
     fetchShipments();
   }, []);
 
@@ -120,12 +131,14 @@ const AdminDashboard = () => {
   };
 
   const handleSaveShipment = async (e) => {
+    setLoading(true);
     e.preventDefault();
     try {
       if (editMode) {
         const shipmentRef = doc(db, "shipments", currentShipmentId);
         await updateDoc(shipmentRef, { sender, receiver, ...shipmentDetails });
         toast.success("Shipment updated successfully");
+        setLoading(false);
       } else {
         const trackingCode = generateTrackingCode();
         const shipmentData = {
@@ -133,14 +146,19 @@ const AdminDashboard = () => {
           receiver,
           ...shipmentDetails,
           trackingCode,
+          createdAt: new Date(), // Ensure createdAt is set when adding a new shipment
         };
         await addDoc(collection(db, "shipments"), shipmentData);
         toast.success("Shipment added successfully");
+        setLoading(false);
       }
       setShowModal(false);
       resetForm();
     } catch (error) {
       toast.error("Error saving shipment: " + error.message);
+      setLoading(false);
+    } finally {
+      fetchShipments();
     }
   };
 
@@ -177,6 +195,7 @@ const AdminDashboard = () => {
     setCurrentShipmentId(null);
   };
   const handleDeleteShipment = async () => {
+    setDeleteLoading(true); // Add this line
     try {
       const shipmentRef = doc(db, "shipments", currentShipmentId);
       await deleteDoc(shipmentRef);
@@ -185,7 +204,19 @@ const AdminDashboard = () => {
       resetForm();
     } catch (error) {
       toast.error("Error deleting shipment: " + error.message);
+    } finally {
+      setDeleteLoading(false); // Add this line
+      fetchShipments();
     }
+  };
+  const copyToClipboard = (trackingCode) => {
+    navigator.clipboard.writeText(trackingCode)
+      .then(() => {
+        toast.success(`Tracking Code Copied!`);
+      })
+      .catch((err) => {
+        toast.error('Failed to copy tracking code');
+      });
   };
   // Filter shipments based on search criteria
   const filteredShipments = shipments.filter((shipment) => {
@@ -218,6 +249,12 @@ const AdminDashboard = () => {
       customClearanceFee.toLowerCase().includes(searchString)
     );
   });
+  const filteredShipmentsSorted = filteredShipments
+    .filter((shipment) => shipment.createdAt) // Ensure we only sort shipments with a createdAt field
+    .sort((a, b) => {
+      return b.createdAt.seconds - a.createdAt.seconds; // Sort by createdAt timestamp
+    });
+
   return (
     <div className="relative">
       {unlock && (
@@ -226,7 +263,7 @@ const AdminDashboard = () => {
 
           <div className="absolute inset-0 bg-orange-450 brightness-75 -z-10"></div>
           <div className="min-h-screen w-full flex flex-col items-center relative">
-            <div className="flex px-[0.5rem] pt-24 pb-[1rem]    flex-col  lg:w-[40%] md:w-[60%] w-full">
+            <div className="flex px-[0.5rem]  py-[2rem]    flex-col  lg:w-[40%] md:w-[60%] w-full">
               <motion.div
                 initial={{ y: "10vh", opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -260,7 +297,7 @@ const AdminDashboard = () => {
                     ariaLabel="tail-spin-loading"
                   />
                 ) : (
-                  filteredShipments.map((shipment, index) => (
+                  filteredShipmentsSorted.map((shipment, index) => (
                     <motion.div
                       initial={{ y: "10vh", opacity: 0 }}
                       animate={{ y: 0, opacity: 1 }}
@@ -274,6 +311,14 @@ const AdminDashboard = () => {
                     >
                       <p className="">{shipment.trackingCode}</p>
                       <div className="flex gap-[1rem]">
+                         
+                      <button
+                              onClick={() => copyToClipboard(shipment.trackingCode)}
+                              className="text-white"
+                            >
+                              <MdOutlineContentCopy />
+                            </button>
+
                         <button onClick={() => handleEditShipment(shipment)}>
                           <FaEdit className="fill-blue-400" />
                         </button>
@@ -293,6 +338,7 @@ const AdminDashboard = () => {
             </div>
             <DeleteModal
               isOpen={deleteModal}
+              deleteLoading={deleteLoading}
               onRequestClose={toggleDeleteModal}
               onConfirm={handleDeleteShipment}
             />
@@ -438,7 +484,7 @@ const AdminDashboard = () => {
                     </div>
                     <div className="flex flex-col w-full gap-2 mt-8">
                       <h3 className="text-center">Shipment Details</h3>
-                     
+
                       <label className="flex justify-between items-center gap-2">
                         Origin:
                         <Select
@@ -510,7 +556,7 @@ const AdminDashboard = () => {
                       <label className="flex justify-between ">
                         Custom Fee:
                         <input
-                        className="w-[65%]  md:w-[75%]"
+                          className="w-[65%]  md:w-[75%]"
                           type="text"
                           name="customClearanceFee"
                           value={shipmentDetails.customClearanceFee}
@@ -534,9 +580,21 @@ const AdminDashboard = () => {
                       </div>
                       <button
                         type="submit"
-                        className="mt-4 bg-blue-500 text-white py-2 px-4 rounded"
+                        className="mt-4 bg-blue-500 text-white py-2 px-4 rounded flex justify-center items-center"
                       >
-                        {editMode ? "Update Shipment" : "Add Shipment"}
+                        {loading ? (
+                          <TailSpin
+                            visible={true}
+                            height="24"
+                            width="24"
+                            color="#ffffff"
+                            ariaLabel="tail-spin-loading"
+                          />
+                        ) : editMode ? (
+                          "Update Shipment"
+                        ) : (
+                          "Add Shipment"
+                        )}
                       </button>
                     </div>
                   </form>

@@ -8,6 +8,8 @@ import "react-toastify/dist/ReactToastify.css";
 import "./AdminLogin.css";
 import header_logo from "/images/header_logo.svg";
 import { TailSpin } from "react-loader-spinner";
+import { FaArrowLeft } from "react-icons/fa6";
+import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 
 const AdminLogin = () => {
   const [email, setEmail] = useState("");
@@ -27,19 +29,19 @@ const AdminLogin = () => {
       let errorMessage = "An error occurred while logging in.";
       if (error.code) {
         switch (error.code) {
-         
-          case 'auth/user-disabled':
+          case "auth/user-disabled":
             errorMessage = "This user account has been disabled.";
             break;
-    
-          case 'auth/invalid-credential':
+
+          case "auth/invalid-credential":
             errorMessage = "Invalid Email or Password.";
             break;
-          case 'auth/too-many-requests':
+          case "auth/too-many-requests":
             errorMessage = "Too many login attempts. Please try again later.";
             break;
-          case 'auth/network-request-failed':
-            errorMessage = "Network error. Please check your internet connection.";
+          case "auth/network-request-failed":
+            errorMessage =
+              "Network error. Please check your internet connection.";
             break;
           default:
             errorMessage = "An unexpected error occurred. Please try again.";
@@ -54,7 +56,13 @@ const AdminLogin = () => {
 
   return (
     <div className="h-screen w-full flex justify-center items-center flex-col admin">
-      <div className="h-[70%] lg:h-[90%] bg-opacity-90 w-[90%] lg:w-[40%] bg-white flex items-center justify-center gap-[3rem] flex-col rounded-md">
+      <div className="h-[70%] lg:h-[90%] bg-opacity-90 w-[90%] lg:w-[40%] bg-white flex items-center justify-center gap-[3rem] flex-col rounded-md relative">
+        <Link to="/">
+          <div className="absolute top-4 left-4">
+            {" "}
+            <MdOutlineKeyboardArrowLeft className="text-4xl" />
+          </div>
+        </Link>
         <div className="flex items-center flex-col gap-[2rem]">
           <Link to="/">
             <img
