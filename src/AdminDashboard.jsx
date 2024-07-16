@@ -222,9 +222,8 @@ const AdminDashboard = () => {
     <div className="relative">
       {unlock && (
         <div>
-          
-            <Header />
-          
+          <Header />
+
           <div className="absolute inset-0 bg-orange-450 brightness-75 -z-10"></div>
           <div className="min-h-screen w-full flex flex-col items-center relative">
             <div className="flex px-[0.5rem] pt-24 pb-[1rem]    flex-col  lg:w-[40%] md:w-[60%] w-full">
@@ -304,7 +303,7 @@ const AdminDashboard = () => {
                 style={{
                   overlay: { backgroundColor: "rgba(0, 0, 0, 0.5)" },
                   content: {
-                    top: "50%",
+                    top: "55%",
                     left: "50%",
                     right: "auto",
                     bottom: "auto",
@@ -339,12 +338,13 @@ const AdminDashboard = () => {
                     onSubmit={handleSaveShipment}
                     className="flex flex-col items-center"
                   >
-                    <div className="flex w-full justify-between">
-                      <div className="flex flex-col gap-1">
+                    <div className="flex mt-8 w-full flex-col md:flex-row justify-between">
+                      <div className="flex flex-col gap-2">
                         <h3 className="text-center">Sender Details</h3>
-                        <label className="flex flex-col">
+                        <label className="flex  gap-2">
                           Name:
                           <input
+                            className="px-1 w-full"
                             type="text"
                             value={sender.name}
                             onChange={(e) =>
@@ -356,9 +356,10 @@ const AdminDashboard = () => {
                             required
                           />
                         </label>
-                        <label className="flex flex-col">
+                        <label className="flex gap-2">
                           Phone:
                           <input
+                            className="px-1 w-full"
                             type="text"
                             value={sender.phone}
                             onChange={(e) =>
@@ -370,9 +371,10 @@ const AdminDashboard = () => {
                             required
                           />
                         </label>
-                        <label className="flex flex-col">
+                        <label className="flex gap-2">
                           Email:
                           <input
+                            className="px-1 w-full"
                             type="email"
                             value={sender.email}
                             onChange={(e) =>
@@ -385,11 +387,12 @@ const AdminDashboard = () => {
                           />
                         </label>
                       </div>
-                      <div className="flex flex-col gap-1">
+                      <div className="flex flex-col gap-2  ">
                         <h3 className="text-center">Receiver Details</h3>
-                        <label className="flex flex-col">
+                        <label className="flex gap-2">
                           Name:
                           <input
+                            className="px-1 w-full"
                             type="text"
                             value={receiver.name}
                             onChange={(e) =>
@@ -401,9 +404,10 @@ const AdminDashboard = () => {
                             required
                           />
                         </label>
-                        <label className="flex flex-col">
+                        <label className="flex gap-2">
                           Phone:
                           <input
+                            className="px-1 w-full"
                             type="text"
                             value={receiver.phone}
                             onChange={(e) =>
@@ -415,9 +419,10 @@ const AdminDashboard = () => {
                             required
                           />
                         </label>
-                        <label className="flex flex-col">
+                        <label className="flex gap-2">
                           Email:
                           <input
+                            className="px-1 w-full"
                             type="email"
                             value={receiver.email}
                             onChange={(e) =>
@@ -431,11 +436,65 @@ const AdminDashboard = () => {
                         </label>
                       </div>
                     </div>
-                    <div className="flex flex-col w-full gap-2 mt-2">
+                    <div className="flex flex-col w-full gap-2 mt-8">
                       <h3 className="text-center">Shipment Details</h3>
-                      <label className="flex justify-between gap-2">
-                        Content Name:
+                     
+                      <label className="flex justify-between items-center gap-2">
+                        Origin:
+                        <Select
+                          className="w-[65%]  md:w-[75%]"
+                          options={countryOptions}
+                          value={shipmentDetails.countryFrom}
+                          onChange={(value) =>
+                            handleInputChange(
+                              { countryFrom: value },
+                              "shipmentDetails"
+                            )
+                          }
+                          required
+                        />
+                      </label>
+                      <label className="flex justify-between items-center gap-2">
+                        Destination:
+                        <Select
+                          className=" w-[65%]  md:w-[75%]"
+                          options={countryOptions}
+                          value={shipmentDetails.countryTo}
+                          onChange={(value) =>
+                            handleInputChange(
+                              { countryTo: value },
+                              "shipmentDetails"
+                            )
+                          }
+                          required
+                        />
+                      </label>
+                      <label className="flex w-full items-center justify-between gap-2">
+                        Shipping Date:
+                        <DatePicker
+                          className=" "
+                          selected={shipmentDetails.shippingDate}
+                          onChange={(date) =>
+                            handleDateChange(date, "shippingDate")
+                          }
+                          required
+                        />
+                      </label>
+                      <label className="flex w-full items-center justify-between gap-2">
+                        Arrival Date:
+                        <DatePicker
+                          className=" "
+                          selected={shipmentDetails.arrivalDate}
+                          onChange={(date) =>
+                            handleDateChange(date, "arrivalDate")
+                          }
+                          required
+                        />
+                      </label>
+                      <label className="flex  justify-between">
+                        Content:
                         <input
+                          className=" w-[65%] md:w-[75%]"
                           type="text"
                           name="contentName"
                           value={shipmentDetails.contentName}
@@ -448,57 +507,10 @@ const AdminDashboard = () => {
                           required
                         />
                       </label>
-                      <label className="flex justify-between gap-2">
-                        Country From:
-                        <Select
-                          options={countryOptions}
-                          value={shipmentDetails.countryFrom}
-                          onChange={(value) =>
-                            handleInputChange(
-                              { countryFrom: value },
-                              "shipmentDetails"
-                            )
-                          }
-                          required
-                        />
-                      </label>
-                      <label className="flex justify-between gap-2">
-                        Country To:
-                        <Select
-                          options={countryOptions}
-                          value={shipmentDetails.countryTo}
-                          onChange={(value) =>
-                            handleInputChange(
-                              { countryTo: value },
-                              "shipmentDetails"
-                            )
-                          }
-                          required
-                        />
-                      </label>
-                      <label className="flex justify-between gap-2">
-                        Shipping Date:
-                        <DatePicker
-                          selected={shipmentDetails.shippingDate}
-                          onChange={(date) =>
-                            handleDateChange(date, "shippingDate")
-                          }
-                          required
-                        />
-                      </label>
-                      <label className="flex justify-between gap-2">
-                        Arrival Date:
-                        <DatePicker
-                          selected={shipmentDetails.arrivalDate}
-                          onChange={(date) =>
-                            handleDateChange(date, "arrivalDate")
-                          }
-                          required
-                        />
-                      </label>
-                      <label className="flex justify-between gap-2">
-                        Custom Clearance Fee:
+                      <label className="flex justify-between ">
+                        Custom Fee:
                         <input
+                        className="w-[65%]  md:w-[75%]"
                           type="text"
                           name="customClearanceFee"
                           value={shipmentDetails.customClearanceFee}

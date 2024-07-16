@@ -6,14 +6,13 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./AdminLogin.css";
-import Header from "./components/Header";
 import header_logo from "/images/header_logo.svg";
 import { TailSpin } from "react-loader-spinner";
 
 const AdminLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false); // Add loading state
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -24,7 +23,30 @@ const AdminLogin = () => {
       toast.success("Admin logged in");
       navigate("/admin-dashboard");
     } catch (error) {
-      toast.error("Error logging in: " + error.message);
+      console.error("Login error:", error); // Log the error to the console for debugging
+      let errorMessage = "An error occurred while logging in.";
+      if (error.code) {
+        switch (error.code) {
+         
+          case 'auth/user-disabled':
+            errorMessage = "This user account has been disabled.";
+            break;
+    
+          case 'auth/invalid-credential':
+            errorMessage = "Invalid Email or Password.";
+            break;
+          case 'auth/too-many-requests':
+            errorMessage = "Too many login attempts. Please try again later.";
+            break;
+          case 'auth/network-request-failed':
+            errorMessage = "Network error. Please check your internet connection.";
+            break;
+          default:
+            errorMessage = "An unexpected error occurred. Please try again.";
+            break;
+        }
+      }
+      toast.error(errorMessage);
     } finally {
       setLoading(false); // Set loading to false when login completes
     }
@@ -32,8 +54,7 @@ const AdminLogin = () => {
 
   return (
     <div className="h-screen w-full flex justify-center items-center flex-col admin">
-      
-      <div className="h-[70%]  lg:h-[90%] bg-opacity-90 w-[90%] lg:w-[40%] bg-white flex items-center justify-center gap-[3rem] flex-col rounded-md">
+      <div className="h-[70%] lg:h-[90%] bg-opacity-90 w-[90%] lg:w-[40%] bg-white flex items-center justify-center gap-[3rem] flex-col rounded-md">
         <div className="flex items-center flex-col gap-[2rem]">
           <Link to="/">
             <img
@@ -42,7 +63,7 @@ const AdminLogin = () => {
               className="w-[12rem]"
             />
           </Link>
-          <h1 className="text-[1.4rem] text-[#102541]  font-bold">
+          <h1 className="text-[1.4rem] text-[#102541] font-bold">
             ADMIN DASHBOARD
           </h1>
         </div>
