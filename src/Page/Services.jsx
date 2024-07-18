@@ -6,6 +6,7 @@ import { IoLogoWhatsapp } from "react-icons/io5";
 import ClientCarousel from "../components/ClientCarousel";
 import Footer from "../components/Footer";
 import Support from "../components/Support";
+import ServicesComponent from "../components/ServicesComponent";
 
 const Services = () => {
   return (
@@ -23,7 +24,7 @@ const Services = () => {
       <p className="lg:px-24 px-4 py-7 text-3xl bg-gray-100 flex ">
         Our Services
       </p>
-      <Ourservices />
+      <ServicesComponent  showAll={true}/>
       <hr />
       <ClientCarousel />
       <hr />

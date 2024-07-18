@@ -68,7 +68,7 @@ const Home = () => {
       <hr />
       <AboutHome isTruncated={true} />
       <hr />
-      <ServicesComponent />
+      <ServicesComponent showAll={false}/>
       <hr />
       <WhyChooseUs />
       <hr />
