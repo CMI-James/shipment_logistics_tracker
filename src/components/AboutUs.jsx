@@ -41,17 +41,17 @@ const AboutHome = ({ isTruncated }) => {
   }, []);
 
   return (
-    <div className="flex flex-col md:flex-row gap-8 lg:gap-16 text-grey-450 text-opacity-90 lg:px-24 px-4 py-20">
+    <div className="flex flex-col md:flex-row gap-8 lg:gap-20 text-grey-450 text-opacity-90 lg:px-24 px-4 py-20">
       <div className="flex-1">
         <p className="text-lg text-gray-500" data-aos="fade-up">
           About us
         </p>
         <div data-aos="fade-up" data-aos-delay="200">
           {" "}
-          <h2 className="text-2xl md:text-3xl font-bold mt-2">
+          <h2 className="text-xl md:text-2xl font-bold mt-2">
             Our shipping solutions connect people with endless possibilities.
           </h2>
-          <p className="text-lg mt-2">
+          <p className="text-base mt-2">
             Trustway Logistics stands as a distinguished leader in the shipping
             and logistics industry, operating under the esteemed banner of the
             Trustway Logistics Group. With a comprehensive array of shipping
@@ -74,7 +74,7 @@ const AboutHome = ({ isTruncated }) => {
              
               <div className="w-fit flex justify-center items-center p-2 border-2 border-orange-450 bg-white rounded-full transition-all duration-500 ease-linear  group-hover:bg-orange-450">
                   <span
-                    className="text-orange-450 transition-all duration-500 ease-linear group-hover:text-white text-6xl  flex justify-center items-center h-[2rem] w-[2rem]
+                    className="text-orange-450 transition-all duration-500 ease-linear group-hover:text-white text-4xl  flex justify-center items-center h-[1.5rem] w-[1.5rem]
 "
                   >
                  {item.icon}
@@ -82,7 +82,7 @@ const AboutHome = ({ isTruncated }) => {
                 </div>
 
               <div>
-                <h1 className="pb-4 text-xl font-bold hover:text-orange-450">
+                <h1 className="pb-4 text-lg font-bold hover:text-orange-450">
                   {item.title}
                 </h1>
                 <p className="text-sm">
@@ -91,8 +91,8 @@ const AboutHome = ({ isTruncated }) => {
                     : item.description}
                   {isTruncated && (
                     <Link
-                      to="/about"
-                      className="text-orange-450 hover:underline"
+                      to="/about" 
+                      className="text-orange-450 text-xs italic hover:underline"
                     >
                       Read More
                     </Link>
@@ -105,10 +105,10 @@ const AboutHome = ({ isTruncated }) => {
       </div>
       <div className="flex-1 pt-8 md:pt-40">
         <div data-aos="fade-up" data-aos-delay="800">
-          <h2 className="text-2xl md:text-3xl font-bold">
+          <h2 className="text-xl md:text-2xl font-bold">
             BE THE BOSS OF YOUR SHIPMENT
           </h2>
-          <p className="text-lg mt-4">
+          <p className="text-base mt-4">
             Our comprehensive shipping solution, My Trustway Logistics Parcel,
             puts you in control of all your shipments. We provide real-time
             updates at every stage of the delivery journey, starting from when
@@ -126,7 +126,7 @@ const AboutHome = ({ isTruncated }) => {
           data-aos-delay="600"
         />
         <h1 data-aos="fade-up" data-aos-delay="600">
-          <span className="text-xl font-extrabold block">Michael Thompson</span>{" "}
+          <span className="text-lg font-extrabold block">Michael Thompson</span>{" "}
           <span className="text-sm">Chief Executive Officer</span>
         </h1>
       </div>

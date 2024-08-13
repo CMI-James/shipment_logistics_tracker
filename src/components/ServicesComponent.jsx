@@ -112,12 +112,12 @@ const ServicesComponent = ({ showAll = false }) => {
   return (
     <div className="px-4 py-20 sm:px-8 lg:px-24 bg-gray-50  text-grey-450 text-opacity-90  ">
       <div className="text-center" data-aos="fade-up">
-        <h1 className="text-3xl md:text-4xl font-bold text-grey-450 text-opacity-90">
+        <h1 className="text-2xl md:text-3xl font-bold text-grey-450 text-opacity-90">
           Our Services
         </h1>
       </div>
       <p
-        className="py-6 text-center text-lg md:text-xl text-gray-600"
+        className="py-6 text-center text-base md:text-base text-gray-600"
         data-aos="fade-up"
         data-aos-delay="200"
       >
@@ -146,17 +146,17 @@ const ServicesComponent = ({ showAll = false }) => {
               <div className="flex flex-col justify-between w-full flex-1">
                 {" "}
                 <div className="px-6 py-4 flex flex-col gap-4">
-                  <h1 className="text-xl font-semibold text-gray-800">
+                  <h1 className="text-lg font-semibold text-gray-800">
                     {service.title}
                   </h1>
-                  <p className="text-base  text-gray-600">
+                  <p className="text-sm  text-gray-600">
                     {service.description}
                   </p>
                 </div>
                 <div className="px-6 py-4">
                   <Link to="/services">
                     {" "}
-                    <button className="bg-[#e8772e] hover:bg-[#e8813d] text-white px-4 py-2 rounded-md">
+                    <button className="bg-[#e8772e] text-sm hover:bg-[#e8813d] text-white px-4 py-2 rounded-md">
                       Read more
                     </button>
                   </Link>

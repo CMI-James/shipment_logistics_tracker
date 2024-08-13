@@ -23,25 +23,25 @@ const Header = () => {
     { name: "Parcel", path: "/parcel" },
   ];
   return (
-    <div className="sticky top-0 z-[1000] w-full bg-white  lg:px-12 px-4 py-4 flex justify-between items-center shadow-md text-grey-450">
+    <div className="sticky top-0 z-[1000] w-full bg-white  lg:px-12 px-4 py-2 flex justify-between items-center shadow-md text-grey-450">
       {/* Logo Section */}
       <Link to="/">
         <div className="flex items-center">
           <img
             src={header_logo}
             alt="Trustway Logistics Logo"
-            className="w-32"
+            className="w-28"
           />
         </div>
       </Link>
 
       {/* Navigation Menu */}
       <div className="hidden lg:flex flex-1 justify-center">
-        <ul className="flex space-x-6 font-semibold text-lg">
+        <ul className="flex space-x-6 font-semibold text-base">
           {navItems.map((item, index) => (
             <li
               key={index}
-              className="underline-offset-2 hover:border-b-orange-450 hover:border-b-[1px]  transition-all ease-in duration-500 hover:text-orange-450"
+              className="underline-offset-2 hover:border-b-orange-450 hover:border-b-[1px] border-b-[1px] border-b-white  transition-all ease-in duration-500 hover:text-orange-450"
             >
               <Link to={item.path}>{item.name}</Link>
             </li>
@@ -53,7 +53,7 @@ const Header = () => {
       <div className="flex gap-4 items-center">
         <div className="flex ">
           <Link to="/user">
-            <button className="border-orange-450 border-2  text-orange-450 rounded-lg px-4 py-1">
+            <button className="border-orange-450 border-2 text-sm text-orange-450 rounded-lg px-4 py-1">
               Track Cargo
             </button>
           </Link>

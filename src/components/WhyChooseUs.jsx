@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import { IoIosPin } from "react-icons/io";
 import { FiBox } from "react-icons/fi";
 import { BiSupport } from "react-icons/bi";
-
+import whychooseus from "/images/whychooseus.jpg";
+import "./WhyChooseUs.css";
 import { TbWorld } from "react-icons/tb";
+import { FaRegPlayCircle } from "react-icons/fa";
+import { IoPlayCircleOutline } from "react-icons/io5";
 const WhyChooseUs = () => {
   const [videoPlaying, setVideoPlaying] = useState(false);
 
@@ -40,36 +43,18 @@ const WhyChooseUs = () => {
 
   return (
     <section className="bg-grey-450 text-white py-20">
-      <div className="lg:px-24 py-20 px-4 sm:px-6  flex flex-col md:flex-row  gap-6 items-center  justify-between">
-        <div className="w-full md:w-1/2 mb-6 md:mb-0 ">
-          <div className="relative">
-            {!videoPlaying && (
-              <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
-                <button
-                  onClick={toggleVideo}
-                  className="text-orange-500 text-6xl"
-                >
-                  <i className="fas fa-play-circle"></i>
-                </button>
-              </div>
-            )}
-            {videoPlaying ? (
-              <video controls className="w-full">
-                <source src="/path-to-video.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            ) : (
-              <img
-                src="/path-to-image.jpg"
-                alt="Trustway Logistics"
-                className="w-full"
-              />
-            )}
-          </div>
-        </div>
+      <div className="lg:px-24 py-20 px-4 sm:px-6  flex flex-col md:flex-row  gap-10 items-center  justify-between">
+       <div className=" z-20 w-full p-3   md:w-1/2 mb-6 md:mb-0">
+       <div className="whychooseus ">
+       <div className="absolute inset-0 flex justify-center items-center z-10">
+        <IoPlayCircleOutline   className="text-orange-450 cursor-pointer  text-8xl" />
+      </div>
+       </div>
+       </div>
+
         <div className="w-full md:w-1/2">
           <h1 className="mb-4">Trustway Logistics</h1>
-          <h2 className="text-4xl  mb-4 text-orange-450">Why Choose Us?</h2>
+          <h2 className="text-3xl  mb-4 text-orange-450">Why Choose Us?</h2>
           <p className="mb-6">
             At Trustway Logistics, we prioritize long-term strategic
             partnerships with our customers. We are personally dedicated to
@@ -80,15 +65,15 @@ const WhyChooseUs = () => {
             {features.map((feature) => (
               <li key={feature.title} className="my-10 flex  items-start">
                 <div className="w-fit flex justify-center items-center p-3 m-6 border-2 border-orange-450 bg-orange-450 rounded-full ">
-                  <span className="text-white  text-6xl  flex justify-center items-center h-[2rem] w-[2rem]">
+                  <span className="text-white  text-4xl  flex justify-center items-center h-[1.5rem] w-[1.5rem]">
                     {feature.icon}
                   </span>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-2 text-orange-450">
+                  <h3 className="text-lg font-semibold mb-2 text-orange-450">
                     {feature.title}
                   </h3>
-                  <p>{feature.description}</p>
+                  <p className="text-sm">{feature.description}</p>
                 </div>
               </li>
             ))}

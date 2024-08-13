@@ -1,0 +1,25 @@
+/* Hero.css */
+.whychooseus {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+  }
+  
+  .whychooseus::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("/images/whychooseus.jpg") no-repeat center center;
+    background-size: cover;
+    background-attachment: scroll; /* Change from 'fixed' to 'scroll' */
+    filter: brightness(50%);
+    -webkit-filter: brightness(50%);
+    z-index: -1;
+  }
+  
