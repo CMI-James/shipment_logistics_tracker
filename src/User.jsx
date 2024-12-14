@@ -2,12 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { db } from "./firebaseConfig";
 import { collection, query, where, getDocs } from "firebase/firestore";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { TailSpin } from "react-loader-spinner";
 import { motion } from "framer-motion";
 import Header from "./components/Header";
 import ShipmentStatusTracker from "./ShipmentStatusTracker";
+import { toast } from "sonner";
 
 const transitionSettings = {
   duration: 0.8,

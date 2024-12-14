@@ -3,13 +3,12 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { auth } from "./firebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import "./AdminLogin.css";
 import header_logo from "/images/header_logo.svg";
 import { TailSpin } from "react-loader-spinner";
 import { FaArrowLeft } from "react-icons/fa6";
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
+import { toast } from "sonner";
 
 const AdminLogin = () => {
   const [email, setEmail] = useState("");
