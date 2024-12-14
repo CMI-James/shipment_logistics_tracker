@@ -15,7 +15,7 @@ import Modal from "react-modal";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useAuth } from "./AuthContext";
-import cancel from "../public/images/cancel.svg";
+import cancel from "/images/cancel.svg";
 import Select from "react-select";
 import countryList from "react-select-country-list";
 import ShipmentStatusTracker from "./ShipmentStatusTracker";

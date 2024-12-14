@@ -6,22 +6,22 @@ const teamMembers = [
   {
     name: "Walter Blair",
     position: "Shipping And Logistics",
-    image: "/path/to/walter-blair.jpg",
+    image: "/images/walter-blair.jpg",
   },
   {
     name: "Garreth Paul",
     position: "Parcel Packaging And Safety",
-    image: "/path/to/garreth-paul.jpg",
+    image: "/images/garreth-paul.jpg",
   },
   {
     name: "Amanda Anderson",
     position: "Customer Care Unit",
-    image: "/path/to/amanda-anderson.jpg",
+    image: "/images/amanda-anderson.jpg",
   },
   {
     name: "John D. Tyler",
     position: "Warehousing And Local Transport",
-    image: "/path/to/john-d-tyler.jpg",
+    image: "/images/john-d-tyler.jpg",
   },
 ];
 
@@ -43,18 +43,18 @@ const TeamComponent = () => {
         {teamMembers.map((member, index) => (
           <div
             key={index}
-            className="bg-white rounded-lg shadow-md p-4"
+            className="bg-white rounded-lg shadow-md "
             data-aos="fade-up"
             data-aos-delay={400 + index * 200}
           >
             <img
               src={member.image}
               alt={member.name}
-              className="w-full h-48 object-cover rounded-t-lg"
+              className="w-full h-64 object-cover rounded-t-lg"
             />
-            <div className="mt-4 text-center">
+            <div className="mt-4 text-center p-2">
               <h3 className="text-xl font-bold">{member.name}</h3>
-              <p className="text-gray-600">{member.position}</p>
+              <p className="text-gray-500 text-sm ">{member.position}</p>
             </div>
           </div>
         ))}

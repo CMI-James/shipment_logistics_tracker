@@ -26,7 +26,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="hero w-full flex justify-center items-center mt-[7rem] lg:mt-[10rem]">
+    <div className="hero h-[90vh] w-full flex justify-center items-center mt-[7rem] lg:mt-[10rem]">
       <div className="text-white text-center w-[90%] lg:w-[50%] flex flex-col justify-center items-center gap-6">
         <motion.h1
           className="text-[30px] lg:text-[35px] font-semibold"
@@ -53,7 +53,7 @@ const Hero = () => {
           <div className="flex-1 bg-white py-6 flex flex-col gap-2 justify-center items-center">
             <img src={ship_logo} className="w-8 lg:w-10" alt="Ship" /> Ship
           </div>
-          <div className="bg-[#0b181e] text-white border gap-1 border-white flex-1 py-6 flex flex-col justify-center items-center">
+          <div className="bg-[#0b181e] text-white gap-1 flex-1 py-6 flex flex-col justify-center items-center">
             <img src={search_logo} className="w-10 lg:w-14" alt="Track" /> Track
           </div>
           <div className="flex-1 bg-white py-6 flex flex-col gap-1 justify-center items-center">

@@ -7,11 +7,13 @@ import "../App.css";
 const testimonials = [
   {
     name: "Aileen",
+    image: "/images/user.jpg",
     rating: 4,
     text: "Your rates are competitive, and I did shop around. Your people have been courteous and prompt with answers to my questions. So far it has been a great relationship. Thanks!",
   },
   {
     name: "James",
+    image: "/images/user.jpg",
     rating: 4,
     text: "Don’t really want to say much, but I have to say thank you for your fast delivery. This is really a company with a high integrity. Keep up the good works",
   },
@@ -48,7 +50,8 @@ const ClientCarousel = () => {
           {testimonials.map((testimonial, index) => (
             <div key={index} className="p-10">
               <div className="flex flex-col items-center">
-                <div className="w-24 h-24 rounded-full bg-gray-300 mb-4"></div>
+                <img src={testimonial.image} alt={testimonial.name} className="w-24 h-24 rounded-full bg-gray-300 mb-4"/>
+            
                 <h3 className="text-xl font-semibold">{testimonial.name}</h3>
                 <div className="flex mb-4">
                   {[...Array(5)].map((star, i) => (

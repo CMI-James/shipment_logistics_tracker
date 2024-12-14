@@ -60,7 +60,7 @@ const Home = () => {
         href="https://wa.me/2348148001157"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-2 left-2 bg-green-500 hover:bg-green-600 text-white rounded-full p-2 shadow-lg z-[1000]"
+        className="fixed bottom-3 left-2 bg-green-500 hover:bg-green-600 text-white rounded-full p-2 shadow-lg z-[1000]"
       >
         <IoLogoWhatsapp className="w-8 h-8" />
       </a>
@@ -73,8 +73,8 @@ const Home = () => {
       <WhyChooseUs />
       <hr />
       <MoreServices />
-      <hr />
-      <ImageCarousel />
+      {/* <hr />
+      <ImageCarousel /> */}
       <hr />
       <TeamComponent />
       <hr />
