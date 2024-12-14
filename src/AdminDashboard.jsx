@@ -9,8 +9,6 @@ import {
   getDocs,
   deleteDoc,
 } from "firebase/firestore";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import Modal from "react-modal";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -25,6 +23,7 @@ import DeleteModal from "./components/DeleteModal";
 import { Rings, TailSpin, Triangle } from "react-loader-spinner";
 import Header from "./components/Header";
 import { motion } from "framer-motion";
+import { toast } from "sonner";
 
 Modal.setAppElement("#root");
 

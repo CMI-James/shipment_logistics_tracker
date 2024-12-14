@@ -67,7 +67,7 @@ const MoreServices = () => {
               <h3 className="text-xl font-bold mb-2 text-orange-450">
                 {service.title}
               </h3>
-              <p className="">{service.description}</p>
+              <p className="text-base text-gray-600" >{service.description}</p>
             </div>
           ))}
         </div>

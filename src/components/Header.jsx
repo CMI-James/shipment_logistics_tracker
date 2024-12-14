@@ -53,7 +53,7 @@ const Header = () => {
       <div className="flex gap-4 items-center">
         <div className="flex ">
           <Link to="/user">
-            <button className="border-orange-450 border-2 text-sm text-orange-450 rounded-lg px-4 py-1">
+            <button className="border-orange-450 hover:text-white hover:bg-orange-450 transition-colors duration-500 ease-linear border-2 text-sm text-orange-450 rounded-lg px-4 py-1">
               Track Cargo
             </button>
           </Link>

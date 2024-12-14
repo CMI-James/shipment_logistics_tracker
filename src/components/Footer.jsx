@@ -9,6 +9,7 @@ const Footer = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [trackingCode, setTrackingCode] = useState("");
   const navigate = useNavigate();
+  const currentYear = new Date().getFullYear();
 
   const handleTrackClick = () => {
     setIsLoading(true);
@@ -140,7 +141,10 @@ const Footer = () => {
               onChange={(e) => setTrackingCode(e.target.value)}
               className="border  border-gray-300 py-2 px-6 focus:outline-none rounded-md  text-black"
             />
-            <button   onClick={handleTrackClick} className="bg-blue-900 text-white py-2 px-6 rounded-lg">
+            <button
+              onClick={handleTrackClick}
+              className="bg-blue-900 text-white py-2 px-6 rounded-lg"
+            >
               {isLoading ? (
                 <TailSpin
                   visible={true}
@@ -160,7 +164,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row w-full justify-between items-center ">
             {" "}
             <div className="mt-6 text-center text-sm text-gray-500">
-              © 2009 - 2024 Trustway Logistics. All Rights Reserved
+              © 2009 - {currentYear} Trustway Logistics. All Rights Reserved
             </div>
             <div className="mt-6 flex justify-center space-x-4">
               <FaFacebookF className="border border-orange-450 bg-orange-450 text-white rounded-full p-1 text-3xl" />

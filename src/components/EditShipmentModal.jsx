@@ -138,7 +138,7 @@ const EditShipmentModal = ({ isOpen, onRequestClose, shipment, editMode }) => {
         },
       }}
     >
-      <div className="w-full justify-center items-center p-[1rem] bg-zinc-100 rounded-md relative">
+      <div className="w-full justify-center items-center p-[1rem] bg-zinc-100 rounded-sm relative">
         <button
           className="absolute w-[1.5rem] top-1 right-1"
           type="button"
